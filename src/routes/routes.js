@@ -11,6 +11,6 @@ const RouteList = () => (
         </Routes>
         <Footer />
     </BrowserRouter>
-)
+) 
 
 export default RouteList;
