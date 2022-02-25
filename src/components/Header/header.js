@@ -5,9 +5,10 @@ function Header() {
     return (
         <>
             {/* Navbar */}
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="dark" variant="dark" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <img src="https://bit.ly/3oP1hfV" id="logo-camisa" alt="logo"/>
+                    <Navbar.Brand href="#home">Digital Booking</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
