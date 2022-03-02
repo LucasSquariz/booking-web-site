@@ -3,6 +3,7 @@ import Home from '../pages/Home/home.js';
 import Header from '../components/Header/header';
 import Footer from '../components/Footer/footer';
 import Registro from '../pages/Registro/registro.js';
+import Login from '../pages/Login/login.js';
 
 const RouteList = () => (
     <BrowserRouter>
@@ -10,7 +11,7 @@ const RouteList = () => (
         <Routes>
             <Route path="/home" element={<Home />} />  
             <Route path="/login" element={<Login />} />   
-            <Route path="/registrar" element={<Registro />} />   
+            <Route path="/registro" element={<Registro />} />   
         </Routes>
         <Footer />
     </BrowserRouter>
