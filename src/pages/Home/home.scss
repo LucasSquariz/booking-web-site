@@ -1,5 +1,21 @@
 
+.card-group{
+    transition: width 2s;    
+}
+
 .card{
-    margin:10vh;       
+    margin:0 7vh 0 7vh;   
+    box-shadow:3px 3px 3px 3px #DFE4EA;   
+        
+}
+
+.card-img-top{    
+    border-radius: 25px;  
+    height: 18rem;    
+}
+
+.btn{
+    background-color: #F0572D;
+    border: none;
 }
 
