@@ -24,7 +24,8 @@ nav>h3{
 .categorias{
     display: grid;
     grid-template-columns: auto auto auto auto; 
-    background-color: #31363F;  
+    background-color: #31363F; 
+    padding:0px 40px; 
     @media(max-width: 1300px){
         grid-template-columns: auto auto;
     }     

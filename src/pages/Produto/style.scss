@@ -1,0 +1,32 @@
+.container{
+    margin-top: 100px;
+    width: 1000px;
+    height: 1000px;
+}
+.avaliacao-localizacao{
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    
+}
+
+.galeria-imagens{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: 1px solid black;
+}
+
+.imagens-secundarias{
+    display:grid;
+    grid-template-columns: auto auto;
+}
+
+.img-secundaria{
+    width: 190px;
+    height: 150px;
+    margin:10px;
+}
+
+.descricao-produto, .caracteristicas-produto{
+    margin: 0px;
+    border-bottom: 1px solid black;
+}
