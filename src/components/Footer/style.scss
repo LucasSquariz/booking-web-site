@@ -1,0 +1,35 @@
+footer {
+  background-color: var(--first--color);
+  padding: 7px 42px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @media (min-width: 576px) {
+    justify-content: space-between;
+  }
+  @media (max-width: 576px) {
+    display: block;
+    text-align: center;
+  }
+  align-items: center;   
+  bottom: 0;
+
+  a {
+    margin-bottom: -7px;
+  }
+  
+  #icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    svg {
+      width: 22px;
+    }
+  }
+
+  #copyrigth {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
