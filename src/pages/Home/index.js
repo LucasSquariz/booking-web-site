@@ -1,4 +1,5 @@
 import './style.scss';
+import { Link } from "react-router-dom";
 
 function Home() {
     const booking = [
@@ -23,7 +24,7 @@ function Home() {
                     {categorias.map((a) =>
                         <div class="card-categoria">
                             <div class="img-categoria">
-                                <img src={a.url} alt={a.name}></img>
+                                <img class="img-card-categoria" src={a.url} alt={a.name}></img>
                             </div>
                             <div class="nome-categoria">
                                 <p><strong>{a.name}</strong></p>
@@ -60,8 +61,8 @@ function Home() {
                             <div class="descricao">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ex quis diam bibendum aliquet vel non tellus.  </p>
                             </div>
-                            <div class="botao">
-                                <button>Ver mais</button>
+                            <div class="btn">
+                                <Link to ="/produto"><button class="btn-produto">Ver mais</button></Link>
                             </div>
                         </div>
                     </div> 

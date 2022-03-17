@@ -1,18 +1,58 @@
 .container{
-    margin-top: 100px;
-    width: 1000px;
-    height: 1000px;
+    margin-top: 55px;
+    width: 1200px;
+    height: auto;
+    background-color: aqua;
 }
+
+.cabecalho{
+    display: grid;
+    grid-template-columns: 4.5fr 1fr;
+}
+
+.categoria-produto{
+    font: 20px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.356);    
+}   
+
+.nome-produto{
+    font-size: 28px;
+}
+
 .avaliacao-localizacao{
     display:grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 6fr 1fr;
     
+}
+
+.localizacao-texto{
+    margin-left: 10px;
+}
+
+.av{
+    padding-top: 20px;
+}
+
+.avaliacao-produto{
+    margin-right: 10px;
+    
+}
+
+.link{
+    text-decoration: none;
+    
+}
+
+.retornar-produto{
+    margin-left: 10px;
+    font-style: normal;
 }
 
 .galeria-imagens{
     display:grid;
-    grid-template-columns: 2fr 1fr;
-    border-bottom: 1px solid black;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.356);
 }
 
 .imagens-secundarias{
@@ -20,13 +60,57 @@
     grid-template-columns: auto auto;
 }
 
+.img-principal{
+    width: 100%;
+    height: 100%;
+    padding: 5px 0px 5px 0px;
+}
+
 .img-secundaria{
-    width: 190px;
-    height: 150px;
-    margin:10px;
+    position: relative;
+    width: 100%;
+    height: 100%;    
+    padding: 5px;
 }
 
 .descricao-produto, .caracteristicas-produto{
     margin: 0px;
-    border-bottom: 1px solid black;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+}
+
+.btn-ver-mais{
+    position: absolute;
+    bottom:7em;
+    right: 12em;
+}
+
+.politica{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    @media(max-width: 1200px){
+        grid-template-columns: auto auto; 
+    } 
+    @media(max-width: 640px){
+        grid-template-columns: auto; 
+    }   
+}
+
+.normas-texto{
+    padding: 0px 10px 5px 10px;
+}
+
+.seguranca{    
+    padding: 0px 10px;
+    @media(max-width: 640px){
+        padding-top: 20px; 
+    }
+}
+
+.cancelamento{
+    padding-left: 10px;
+    @media(max-width: 1200px){
+        padding-top: 20px; 
+    }
 }

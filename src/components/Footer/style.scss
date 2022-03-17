@@ -1,5 +1,6 @@
 footer {
   background-color: var(--first--color);
+  width: auto;
   padding: 7px 42px;
   display: flex;
   align-items: center;
@@ -10,8 +11,7 @@ footer {
   @media (max-width: 576px) {
     display: block;
     text-align: center;
-  }
-  align-items: center;   
+  }     
   bottom: 0;
 
   a {
@@ -23,6 +23,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
     svg {
       width: 22px;
     }
@@ -30,6 +31,6 @@ footer {
 
   #copyrigth {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500;    
   }
 }
