@@ -1,8 +1,7 @@
 .container{
     margin-top: 55px;
     width: 1200px;
-    height: auto;
-    background-color: aqua;
+    height: auto;    
 }
 
 .cabecalho{
@@ -13,36 +12,36 @@
 .categoria-produto{
     font: 20px;
     font-style: italic;
-    color: rgba(0, 0, 0, 0.356);    
+    color: rgba(0, 0, 0, 0.356); 
+    margin-bottom: 10px;   
 }   
 
 .nome-produto{
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .avaliacao-localizacao{
     display:grid;
-    grid-template-columns: 6fr 1fr;
-    
+    grid-template-columns:1fr 11fr 1fr; 
+    margin: 0px 0px 0px 0px;   
+}
+
+.av{    
+    margin-bottom: 10px;
 }
 
 .localizacao-texto{
-    margin-left: 10px;
-}
-
-.av{
-    padding-top: 20px;
+    margin: 10px;
 }
 
 .avaliacao-produto{
-    margin-right: 10px;
-    
+    margin-right: 10px;    
 }
 
-.link{
-    text-decoration: none;
-    
-}
+// .link{
+//     text-decoration: none;  
+//       
+// }
 
 .retornar-produto{
     margin-left: 10px;
@@ -53,6 +52,7 @@
     display:grid;
     grid-template-columns: 1fr 1fr;
     border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+    padding-bottom: 50px;
 }
 
 .imagens-secundarias{
@@ -75,8 +75,31 @@
 
 .descricao-produto, .caracteristicas-produto{
     margin: 0px;
-    padding: 20px 0px;
+    padding: 50px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+}
+
+.descricao-produto{
+    h3{
+        padding-bottom: 20px;
+    }
+}
+
+.caracter{
+    h3{
+        padding-top: 50px;
+    }
+}
+
+.caracteristicas-produto{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media(max-width: 1200px){
+        grid-template-columns: auto auto; 
+    } 
+    @media(max-width: 640px){
+        grid-template-columns: auto; 
+    } 
 }
 
 .btn-ver-mais{
@@ -86,7 +109,7 @@
 }
 
 .politica{
-    padding-top: 20px;
+    padding: 50px 0px;
     display: grid;
     grid-template-columns: auto auto auto; 
     @media(max-width: 1200px){
@@ -95,6 +118,12 @@
     @media(max-width: 640px){
         grid-template-columns: auto; 
     }   
+}
+
+.normas, .cancelamento, .seguranca{
+    h5{
+        padding-bottom: 20px;
+    }
 }
 
 .normas-texto{
