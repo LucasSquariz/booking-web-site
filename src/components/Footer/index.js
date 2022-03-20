@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <p id="copyrigth">{copyrigth()}</p>
+      <span id="copyrigth">{copyrigth()}</span>
       <div>
         <div id="icons">
           <Link to="/">

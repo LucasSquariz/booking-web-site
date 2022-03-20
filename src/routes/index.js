@@ -4,6 +4,7 @@ import { LoginPage, RegisterPage } from "../pages";
 import { AuthProvider } from "../providers/Auth";
 import Home from "../pages/Home";
 import Produto from "../pages/Produto";
+import Categoria from "../pages/Categoria";
 
 const RouteList = () => {
   return (
@@ -12,7 +13,8 @@ const RouteList = () => {
         <Header />
         <Routes>    
           <Route path="" element={<Home/>}/>   
-          <Route path="/produto" element={<Produto/>}/>         
+          <Route path="/produto" element={<Produto/>}/>   
+          <Route path="/categoria/:categoria" element={<Categoria />} />      
           <Route path="/login" element={<LoginPage/>}/>
           {localStorage.getItem("isLogged") === "true" || <Route path="/register" element={<RegisterPage/>}/>}
           {/* <Route path="*" element={<NotFound />} /> */}
