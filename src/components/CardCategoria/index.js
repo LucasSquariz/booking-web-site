@@ -10,14 +10,15 @@ export default function CardCategoria() {
     ]
     return (
         <>
-            <div class="categorias"> {/*  --- Início das categorias --- */}
+        <h2 className="busca-categoria">Busca por categoria</h2>
+            <div className="categorias"> {/*  --- Início das categorias --- */}
                 {categorias.map((a) =>
-                    <Link to={`/categoria/${a.id}`}>
-                        <div class="card-categoria">
-                            <div class="img-categoria">
-                                <img class="img-card-categoria" src={a.url} alt={a.nome}></img>
+                    <Link to={`/categoria/${a.id}`} key={a.id}>
+                        <div className="card-categoria">
+                            <div className="img-categoria">
+                                <img className="img-card-categoria" src={a.url} alt={a.nome}></img>
                             </div>
-                            <div class="nome-categoria">
+                            <div className="nome-categoria">
                                 <p><strong>{a.nome}</strong></p>
                             </div>
                         </div>

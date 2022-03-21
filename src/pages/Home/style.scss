@@ -6,23 +6,21 @@
     img{    
         position: relative;          
         width: 90%;
-        height: auto;                 
+        height: auto;   
+        min-width: 240px;
+        min-height: 190px;              
         border-radius: 30px;               
     }    
-}
-
-.busca-categoria{
-    background-color: var(--third--color);
-    color: white;
-    margin: 0px;      
-    padding: 50px 0px 0px 30px;
 }
 
 .transicao-busca-categoria{
     width:auto;
     height: auto;
     padding: 50px;      
-    background-image: linear-gradient(var(--second--color), var(--third--color));    
+    background-image: linear-gradient(var(--second--color), var(--third--color)); 
+    @media(max-width: 500px){
+        padding: 5px;
+    }   
 }
 
 .acomodacoes-disponiveis{

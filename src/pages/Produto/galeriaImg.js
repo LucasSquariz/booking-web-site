@@ -12,8 +12,6 @@ const images = [
     { id: 7, nome: "Imagem1", url: "https://www.chavesnamao.com.br/imn/0358x0250/N/imoveis/111410/6668854/sp-sao-paulo-vila-madalena-apartamento-a-venda-3-quartos-621a63b2-1.jpg" },
 ]
 
-
-
 export default function GerarLightbox() {
     const [lightboxDisplay, setLightBoxDisplay] = useState(false)
 

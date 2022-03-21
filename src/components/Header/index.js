@@ -97,7 +97,7 @@ const Header = () => {
       <div id="perfis">
         {location.pathname === "/login"? "": <Link className="menu" to="/login">Login</Link>}
         {location.pathname === "/register"? "":<Link className="menu" to="/register">Registrar</Link>}
-      </div>
+      </div>      
     </header>
   );
 };

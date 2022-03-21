@@ -2,11 +2,13 @@ footer {
   background-color: var(--first--color);
   width: auto;
   height: auto;
+  z-index: 10;
   padding: 15px 42px 5px 42px;
   display: flex;
   align-items: center;  
   @media (min-width: 576px) {
     justify-content: space-between;
+    width: 100%;
   }
   @media (max-width: 576px) {
     display: block;
