@@ -1,7 +1,18 @@
 import { Container } from 'react-bootstrap';
+import GerarLightbox from './galeriaImg';
 import './style.scss';
 
 function Produto() {
+    const images = [
+        { id: 1, nome: "Imagem1", url: "https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" },
+        { id: 2, nome: "Imagem2", url: "https://www.ryazbek.com.br/wp-content/uploads/2019/11/original-ccba23ab2eb493b23837674485286bcf.jpg" },
+        { id: 3, nome: "Imagem3", url: "https://www.incorposul.com.br/wp-content/uploads/2019/08/cropped-como-comprar-um-apartamento-1.jpg" },
+        { id: 4, nome: "Imagem4", url: "https://images.adsttc.com/media/images/5d5c/59fb/284d/d166/2000/0358/large_jpg/Apartamento_Kiev-2.jpg?1566333386" },
+        { id: 5, nome: "Imagem1", url: "https://www.trisul-sa.com.br/blog/wp-content/uploads/2019/09/apezim.jpg" },
+        { id: 6, nome: "Imagem1", url: "https://marquesconstrutora.com.br/wp-content/uploads/2019/05/Fitness-academia-ginastica-lirio-morumbi-lan%C3%A7amento-apartamento-3-dormitorios.jpg" },
+        { id: 7, nome: "Imagem1", url: "https://www.chavesnamao.com.br/imn/0358x0250/N/imoveis/111410/6668854/sp-sao-paulo-vila-madalena-apartamento-a-venda-3-quartos-621a63b2-1.jpg" },
+    ]
+
     return (
         <>
             <Container>
@@ -23,60 +34,32 @@ function Produto() {
                             <svg width="12" height="20" viewBox="0 0 18 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12.35C8.14752 12.35 7.32995 12.0076 6.72716 11.3981C6.12436 10.7886 5.78571 9.96195 5.78571 9.1C5.78571 8.23805 6.12436 7.4114 6.72716 6.8019C7.32995 6.19241 8.14752 5.85 9 5.85C9.85248 5.85 10.67 6.19241 11.2728 6.8019C11.8756 7.4114 12.2143 8.23805 12.2143 9.1C12.2143 9.5268 12.1311 9.94941 11.9696 10.3437C11.8081 10.738 11.5713 11.0963 11.2728 11.3981C10.9744 11.6999 10.62 11.9393 10.2301 12.1026C9.84008 12.2659 9.42211 12.35 9 12.35ZM9 0C6.61305 0 4.32387 0.958747 2.63604 2.66533C0.948211 4.37191 0 6.68653 0 9.1C0 15.925 9 26 9 26C9 26 18 15.925 18 9.1C18 6.68653 17.0518 4.37191 15.364 2.66533C13.6761 0.958747 11.3869 0 9 0Z" fill="#383B58" /></svg>
                             <span class="localizacao-texto">Localização</span>
                         </div>
-                        {/* <div>
-                            <Link to="/" class="link" alt="retornar">                                
-                                <svg width="31" height="31" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g filter="url(#filter0_ddd_47_9296)">
-                                        <circle r="17.5" transform="matrix(-1 0 0 1 20.5 19.5)" fill="#FBC02D" />
-                                    </g>
-                                    <path d="M22.4903 12.0003C22.7196 11.9954 22.9447 12.0596 23.1345 12.1842C23.3242 12.3088 23.4691 12.4875 23.5489 12.6954C23.6288 12.9033 23.6397 13.13 23.5802 13.3441C23.5206 13.5583 23.3935 13.749 23.2165 13.8901L16.4651 19.4827L23.2165 25.0734C23.3389 25.1604 23.4415 25.2708 23.5176 25.3979C23.5938 25.525 23.6421 25.6659 23.6594 25.8119C23.6766 25.9578 23.6625 26.1056 23.618 26.246C23.5734 26.3864 23.4994 26.5165 23.4005 26.628C23.3016 26.7394 23.1799 26.8298 23.0431 26.8937C22.9063 26.9577 22.7574 26.9935 22.6056 26.9992C22.4538 27.0049 22.3024 26.9802 22.161 26.9267C22.0195 26.8732 21.891 26.792 21.7835 26.6882L14.0537 20.2933C13.9323 20.1931 13.8348 20.0688 13.768 19.9287C13.7011 19.7886 13.6665 19.6361 13.6665 19.4818C13.6665 19.3275 13.7011 19.175 13.768 19.0348C13.8348 18.8947 13.9323 18.7703 14.0537 18.6701L21.7835 12.269C21.9788 12.1013 22.2292 12.0062 22.4903 12.0003Z" fill="white" />
-                                    <defs>
-                                        <filter id="filter0_ddd_47_9296" x="0" y="0" width="41" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                            <feOffset dy="1" />
-                                            <feGaussianBlur stdDeviation="1.5" />
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
-                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_47_9296" />
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                            <feOffset dy="2" />
-                                            <feGaussianBlur stdDeviation="0.5" />
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
-                                            <feBlend mode="normal" in2="effect1_dropShadow_47_9296" result="effect2_dropShadow_47_9296" />
-                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                            <feOffset dy="1" />
-                                            <feGaussianBlur stdDeviation="0.5" />
-                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0" />
-                                            <feBlend mode="normal" in2="effect2_dropShadow_47_9296" result="effect3_dropShadow_47_9296" />
-                                            <feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_47_9296" result="shape" />
-                                        </filter>
-                                    </defs>
-                                </svg>
-                            </Link>
-                        </div> */}
                     </div>
                 </div>{/* --- Fim do cabeçalho --- */}
                 <div class="galeria-imagens"> {/* --- Início da galeria --- */}
-                    <div>
-                        <img class="img-principal" src="https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" alt="principal"></img>
+                    <div>                        
+                        <img class="img-principal" src={images[0].url} alt="principal"></img>
                     </div>
                     <div class="imagens-secundarias">
-                        <img class="img-secundaria" src="https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" alt="principal"></img>
-                        <img class="img-secundaria" src="https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" alt="principal"></img>
-                        <img class="img-secundaria" src="https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" alt="principal"></img>
-                        <img class="img-secundaria" src="https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" alt="principal"></img>
-                        <button class="btn-ver-mais">Ver mais</button>
+                        <img class="img-secundaria" src={images[1].url} alt="principal"></img>
+                        <img class="img-secundaria" src={images[2].url} alt="principal"></img>
+                        <img class="img-secundaria" src={images[3].url} alt="principal"></img>
+                        <div class="imagem-botao">
+                            <img class="img-secundaria" src={images[4].url} alt="principal"></img>
+                            <button class="btn-ver-mais" onClick={() => GerarLightbox()}>Ver mais</button>
+                        </div>
+
                     </div>
                 </div> {/* --- Fim da galeria --- */}
                 <div class="descricao-produto"> {/* --- Início da descrição do produto --- */}
-                    <h3>Descrição</h3>
+                    <h3>Descrição</h3>                    
                     <p>Crie um bloco que cubra 100% do container que inclua:
                         Qualificação
                         Texto de descrição do produto. </p>
                 </div> {/* --- Fim da descrição do produto --- */}
                 <div class="caracter"> {/* --- Início das caracteristicas do produto --- */}
                     <h3>Esse local possui</h3>
-                    <div class="caracteristicas-produto"> 
+                    <div class="caracteristicas-produto">
                         <p>
                             <p>
                                 <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
