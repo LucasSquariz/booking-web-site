@@ -16,7 +16,7 @@ function Home() {
                     </div> {/*  --- Fim da barra de pesquisa --- */}
                     <div className="transicao-busca-categoria">
                         <div className="img-home">
-                            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3baa6454903837.596e6edb115db.jpg" alt="imgem-home"></img>
+                            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3baa6454903837.596e6edb115db.jpg" alt="imgem-home"></img>                            
                         </div>
                     </div>
                     <div>
