@@ -1,6 +1,8 @@
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import './style.scss';
+import LightBox from '../../components/Lightbox';
+
 
 function Produto() {
     const images = [
@@ -13,34 +15,9 @@ function Produto() {
         { id: 7, nome: "Imagem7", url: "https://www.chavesnamao.com.br/imn/0358x0250/N/imoveis/111410/6668854/sp-sao-paulo-vila-madalena-apartamento-a-venda-3-quartos-621a63b2-1.jpg" },
     ] 
 
-    {/* ----- Início da lógica da galeria lightbox ----- */}
-    const [lightboxDisplay, setLightBoxDisplay] = useState(false);         
-
-    function showLightbox() {
-        setLightBoxDisplay(true);
-    };
-
-    function hideLightBox() {
-        setLightBoxDisplay(false);
-    };
-    {/* ----- Fim da lógica da galeria lightbox ----- */}
-
     return (
         <>
-            <Container>
-                <div> {/* ----- Inicio da lightbox que aparece com o botão "ver mais" ----- */}
-                    {
-                        lightboxDisplay ?
-                            <>
-                                <div id="lightbox">
-                                    {images.map((a) =>
-                                        <img id="lightbox-img" src={a.url}></img>)}
-                                    <button onClick={hideLightBox}>X</button>
-                                </div>
-                            </>
-                            : ""
-                    }
-                </div>{/* ----- Fim da lightbox que aparece com o botão "ver mais" ----- */}
+            <Container>                
                 <div> {/* --- Início do cabeçalho --- */}
                     <div className="cabecalho">
                         <div>
@@ -71,7 +48,7 @@ function Produto() {
                         <img className="img-secundaria" src={images[3].url} alt="principal"></img>
                         <div className="imagem-botao">
                             <img className="img-secundaria" src={images[4].url} alt="principal"></img>
-                            <button className="btn-ver-mais" onClick={() => showLightbox()}>Ver mais</button>
+                            <LightBox />                           
                         </div>
 
                     </div>
