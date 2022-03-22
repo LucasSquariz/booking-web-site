@@ -8,14 +8,14 @@ function Card() {
         { id: 3, name: "Casa na praia", localizacao: "R. Del Rey, 96-Angra dos Reis, RJ", url: "https://s2.glbimg.com/ulqlv4AMKzTknUujSFXc0aGKQXI=/smart/e.glbimg.com/og/ed/f/original/2019/10/15/decoracao-casa-de-praia-8.jpg" },
         { id: 4, name: "Flat", localizacao: "R. Salim Izar, 114-São Paulo, SP", url: "https://2.bp.blogspot.com/-Y88zLeZOEi4/XEiZiWxm07I/AAAAAAAB710/MI-1p4EaXwoCOoP-qvByQZXoyd6JnhBXACLcBGAs/s1600/32290295-5aa6-4123-a51a-5a6470993415.jpg" },
     ]
-   
+
     return (
-        <>            
+        <>
             <div className="grid"> {/* ---- Início do grid de cards ---- */}
                 {booking.map((a) =>
                     <div className="card" key={a.id}>
                         <div>
-                            <img className="img-card" src={a.url} alt={a.name}></img>
+                            <Link to="/produto"><img className="img-card" src={a.url} alt={a.name}></img></Link>
                         </div>
                         <div className="texto">
                             <div className="avaliacao">
