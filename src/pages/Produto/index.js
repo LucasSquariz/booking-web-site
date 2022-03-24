@@ -1,8 +1,6 @@
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
 import './style.scss';
 import LightBox from '../../components/Lightbox';
-
 
 function Produto() {
     const images = [
@@ -13,11 +11,15 @@ function Produto() {
         { id: 5, nome: "Imagem5", url: "https://www.trisul-sa.com.br/blog/wp-content/uploads/2019/09/apezim.jpg" },
         { id: 6, nome: "Imagem6", url: "https://betaimages.lopes.com.br/realestate/sml/REO28767/61827C063E6A91EB84892A5A89613A40.JPG" },
         { id: 7, nome: "Imagem7", url: "https://www.chavesnamao.com.br/imn/0358x0250/N/imoveis/111410/6668854/sp-sao-paulo-vila-madalena-apartamento-a-venda-3-quartos-621a63b2-1.jpg" },
-    ] 
+    ]
+
+    const scrollWindow = () => {
+        window.scrollTo(0, 0)
+    }
 
     return (
         <>
-            <Container>                
+            <Container onLoad={scrollWindow}>
                 <div> {/* --- Início do cabeçalho --- */}
                     <div className="cabecalho">
                         <div>
@@ -48,21 +50,49 @@ function Produto() {
                         <img className="img-secundaria" src={images[3].url} alt="principal"></img>
                         <div className="imagem-botao">
                             <img className="img-secundaria" src={images[4].url} alt="principal"></img>
-                            <LightBox />                           
+                            <LightBox />
                         </div>
 
                     </div>
                 </div> {/* --- Fim da galeria --- */}
-                <div className="descricao-produto"> {/* --- Início da descrição do produto --- */}
-                    <h3>Descrição</h3>
-                    <p>Crie um bloco que cubra 100% do container que inclua:
-                        Qualificação
-                        Texto de descrição do produto. </p>
+                <h3>Descrição</h3> {/* --- Início da descrição do produto --- */} 
+                <div className="descricao-produto">                    
+                    <div>
+                        <p>Crie um bloco que cubra 100% do container que inclua:
+                            Qualificação
+                            Texto de descrição do produto.
+                        </p>
+                    </div>
+                    <div>
+                        <iframe className="mapa-produto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58517.64389928515!2d-46.67166959470597!3d-23.555771399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1648075086681!5m2!1spt-BR!2sbr" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div> {/* --- Fim da descrição do produto --- */}
+                <div> {/* --- Início do bloco de datas disponíveis --- */}
+                    <h3>Criar bloco de datas disponíveis e botão de reserva</h3>
+                    <p>Desktop<br></br>
+                        Deve incluir um calendário alinhado à esquerda e que ocupe (⅔ partes da grade de conteúdo) que mostre 2 meses simultaneamente que indique as datas disponíveis e indisponíveis.
+                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).
+                        O bloco de reserva deve ocupar ⅓ parte da grade de conteúdo:
+                        Alinhe-o à direita do calendário.
+                        Deve incluir um texto.
+                        Deve incluir um botão “Iniciar Reserva” (sem eventos).<br></br>
+                        Tablet<br></br>
+                        Deve incluir um calendário a 100% da largura do contêiner mostrando 2 meses simultaneamente indicando as datas disponíveis e indisponíveis.
+                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).
+                        Bloco de reserva com uma grade de 2 colunas:
+                        Deve incluir um texto.
+                        Deve incluir um botão “Iniciar Reserva” (sem eventos).<br></br>
+                        Telefone<br></br>
+                        Deve incluir um calendário em 100% da largura do contêiner mostrando 1 mês simultaneamente indicando as datas disponíveis e indisponíveis.
+                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).<br></br>
+                        Bloco de reserva:<br></br>
+                        Deve incluir um texto em 100% da largura da tela.
+                        Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>                        
+                </div> {/* --- Fim do bloco de datas disponíveis --- */}
                 <div className="caracter"> {/* --- Início das caracteristicas do produto --- */}
-                    <h3>Esse local possui</h3>
+                    <h3>Essa acomodação possui</h3>
                     <div className="caracteristicas-produto">
-                        <p>
+                        <div>
                             <p>
                                 <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M30 16.625L24.375 11.375V3.5H20.625V7.875L15 2.625L0 16.625V17.5H3.75V26.25H13.125V21H16.875V26.25H26.25V17.5H30V16.625Z" fill="#383B58" />
@@ -87,11 +117,11 @@ function Produto() {
                                 </svg>
                                 <span className="normas-texto">3 banheiros</span>
                             </p>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>
                                 <svg width="28" height="28" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_47_9281)">
+                                    <g clipPath="url(#clip0_47_9281)">
                                         <path d="M8.99647 12.7371C8.13616 12.7371 7.43628 13.4347 7.43628 14.2917C7.43628 15.149 8.13616 15.8469 8.99647 15.8469C9.85706 15.8469 10.5569 15.149 10.5569 14.2917C10.5569 13.4347 9.85692 12.7371 8.99647 12.7371Z" fill="#383B58" />
                                         <path d="M12.803 10.6188C11.7872 9.60365 10.4351 9.04431 8.99632 9.04431C7.56304 9.04431 6.21467 9.59996 5.19919 10.6088C4.78906 11.0169 4.78835 11.6819 5.19749 12.0907C5.39624 12.2898 5.66086 12.3991 5.94252 12.3991C6.2229 12.3991 6.48653 12.2903 6.68499 12.093C7.30297 11.4789 8.1238 11.1406 8.99632 11.1406C9.8721 11.1406 10.6952 11.481 11.3136 12.0988C11.5124 12.2973 11.7768 12.4069 12.0582 12.4069C12.3389 12.4069 12.6024 12.2981 12.801 12.1008C13.2117 11.6926 13.2124 11.028 12.803 10.6188Z" fill="#383B58" />
                                         <path d="M17.6928 5.74502C15.3705 3.42848 12.2818 2.15307 8.99615 2.15307C5.71492 2.15307 2.62932 3.4255 0.307779 5.73654C-0.102356 6.14469 -0.10264 6.80965 0.307211 7.21851C0.50582 7.41655 0.770016 7.52543 1.05111 7.52543C1.33205 7.52543 1.59597 7.41697 1.79457 7.21907C3.7189 5.30369 6.27639 4.24861 8.99615 4.24861C11.7199 4.24861 14.2799 5.30582 16.2047 7.22631C16.4033 7.4245 16.6679 7.53381 16.9489 7.53381C17.2297 7.53381 17.4936 7.42478 17.692 7.22716C18.1023 6.8187 18.1027 6.15349 17.6928 5.74502Z" fill="#383B58" />
@@ -107,7 +137,7 @@ function Produto() {
                             </p>
                             <p>
                                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_47_9274)">
+                                    <g clipPath="url(#clip0_47_9274)">
                                         <path d="M20.5488 13.6746C22.0044 13.8449 23.3223 12.803 23.4926 11.3473C23.6628 9.89193 22.621 8.57392 21.1653 8.40367C19.7098 8.23329 18.3918 9.27524 18.2219 10.7309C18.0512 12.1865 19.0934 13.5043 20.5488 13.6746Z" fill="#383B58" />
                                         <path d="M8.99224 11.5167L12.9392 10.7285L13.788 12.0935L10.7129 15.0176C11.1877 15.1376 11.6438 15.3162 12.0677 15.5498C12.271 15.6619 12.4615 15.7913 12.6457 15.9164C12.9425 16.118 13.2217 16.3119 13.4985 16.3879C13.7174 16.448 14.0042 16.4514 14.0224 16.4525C14.4122 16.4491 14.7557 16.3407 15.1063 16.1121C16.0181 15.5176 17.1372 14.9017 18.5252 14.8408C18.6276 14.8363 18.7311 14.834 18.8329 14.834C19.2782 14.834 19.7135 14.8777 20.1299 14.9625C19.8443 14.5065 14.7554 8.3398 14.7554 8.3398L14.6213 8.17936C14.2929 7.78905 13.7433 7.62577 13.2366 7.81146L8.44427 9.56921C7.98223 9.73817 7.69937 10.2231 7.79861 10.7205C7.90837 11.2698 8.44279 11.6263 8.99224 11.5167Z" fill="#383B58" />
                                         <path d="M26.438 17.6477C25.7847 17.9406 25.2978 18.0601 24.7569 18.0601C24.5439 18.0601 24.3236 18.0411 24.0832 18.0017C23.2825 17.8589 22.7118 17.3966 22.1598 16.9494C21.8204 16.6744 21.4997 16.4146 21.1288 16.2234C20.4575 15.8754 19.6501 15.6915 18.7934 15.6915C18.7045 15.6915 18.6141 15.6936 18.5247 15.6975C17.3532 15.7489 16.4034 16.2701 15.5512 16.8257C15.0513 17.1517 14.4583 17.3082 13.9202 17.3082C13.7579 17.3082 13.4275 17.2726 13.2132 17.2108C12.8017 17.0921 12.449 16.8524 12.1078 16.6209C11.9326 16.5018 11.7671 16.3894 11.5998 16.2972C10.8837 15.9024 10.0568 15.6937 9.20853 15.6937H9.19132C8.00372 15.6976 6.92966 16.0618 6.0854 16.7468C4.9098 17.7008 4.13397 17.9689 3.9128 18.0067C3.9128 18.0067 3.72728 18.0552 3.32893 18.0552C2.56581 18.0552 1.92807 17.8052 1.28796 17.5269C0.838279 17.3313 0.414497 17.219 0 17.1863C0.0803683 17.2328 0.157307 17.2813 0.231939 17.3325C0.556842 17.559 0.824263 17.8343 1.08275 18.1006C1.22114 18.243 1.35177 18.3776 1.49057 18.5053C2.03399 19.0052 3.15554 19.5961 4.4464 19.5961C5.10141 19.5961 5.73519 19.4537 6.32994 19.1727C6.50493 19.09 6.6753 18.9915 6.85562 18.8874C7.15479 18.7147 7.46556 18.5407 7.80992 18.4247C8.24447 18.2783 8.91899 18.3268 8.91899 18.3268C9.61836 18.3715 10.1421 18.7019 10.5202 18.9848C11.6722 19.8465 12.7591 20.2532 13.9407 20.2647L14.0009 20.2651C14.814 20.2651 15.5578 20.1083 16.2119 19.7993C16.5166 19.6553 16.8067 19.4435 17.1139 19.219C17.6909 18.7975 18.2876 18.3616 19.056 18.3315C19.1017 18.3297 19.1482 18.3287 19.1954 18.3287C19.6161 18.3287 20.2497 18.4018 20.8785 18.7501C21.6354 19.1707 22.5511 19.6005 23.6076 19.6005C23.7611 19.6005 23.9178 19.5915 24.0733 19.574C25.0458 19.4639 25.8678 19.1054 26.5165 18.5083C26.6556 18.3803 26.7865 18.2453 26.9251 18.1024C27.2208 17.7979 27.5264 17.4829 27.9125 17.2437C27.9415 17.2257 27.9706 17.2082 28 17.1912C27.5333 17.2328 27.039 17.3782 26.438 17.6477Z" fill="#383B58" />
@@ -132,8 +162,8 @@ function Produto() {
                                 </svg>
                                 <span className="normas-texto">Cozinha</span>
                             </p>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15 17V20H13V17C13 15.9 12.1 15 11 15H8C5.2 15 3 12.8 3 10C3 8.8 3.4 7.8 4.1 6.9C1.8 6.5 0 4.4 0 2C0 1.3 0.2 0.6 0.4 0H2.8C2.3 0.5 2 1.2 2 2C2 3.7 3.3 5 5 5H8V7C6.3 7 5 8.3 5 10C5 11.7 6.3 13 8 13H11C13.2 13 15 14.8 15 17ZM15.9 6.9C18.2 6.5 20 4.4 20 2C20 1.3 19.8 0.6 19.6 0H17.2C17.7 0.5 18 1.2 18 2C18 3.7 16.7 5 15 5H13.8C13.9 5.3 14 5.6 14 6C14 7.7 12.7 9 11 9V11C13.8 11 16 13.2 16 16V20H18V16C18 13.3 16.5 11 14.2 9.8C15.1 9.1 15.7 8.1 15.9 6.9Z" fill="#383B58" />
@@ -158,8 +188,8 @@ function Produto() {
                                 </svg>
                                 <span className="normas-texto">Maquina de lavar</span>
                             </p>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <p>
                                 <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.899658 5.83346L8.7749 2.56654V22.1665L0.899658 25.4335V5.83346Z" fill="#383B58" />
@@ -188,7 +218,7 @@ function Produto() {
                                 </svg>
                                 <span className="normas-texto">Mercado próximo</span>
                             </p>
-                        </p>
+                        </div>
                     </div>
                 </div> {/* --- Fim das caracteristicas do produto --- */}
                 <div className="politica"> {/* --- Início do bloco de políticas do produto --- */}
@@ -221,7 +251,7 @@ function Produto() {
                         <p>
                             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.53 0L12.45 1.08L14.05 2.68C14.27 2.93 14.38 3.22 14.38 3.55C14.38 3.88 14.27 4.19 14.05 4.41L10.5 8.02L11.5 9.1L15.13 5.49C15.66 4.9 15.92 4.25 15.92 3.55C15.92 2.85 15.66 2.19 15.13 1.6L13.53 0ZM9.55 2.02L8.47 3.1L9.08 3.66C9.3 3.88 9.41 4.18 9.41 4.55C9.41 4.92 9.3 5.22 9.08 5.44L8.47 6L9.55 7.08L10.11 6.47C10.64 5.88 10.91 5.24 10.91 4.55C10.91 3.83 10.64 3.18 10.11 2.58L9.55 2.02ZM20 3.61C19.31 3.61 18.67 3.88 18.08 4.41L12.45 10.05L13.53 11.05L19.11 5.49C19.36 5.24 19.66 5.11 20 5.11C20.34 5.11 20.64 5.24 20.89 5.49L21.5 6.1L22.53 5.02L21.97 4.41C21.38 3.88 20.72 3.61 20 3.61ZM6 6.55L1 20.55L15 15.55L6 6.55ZM18 9.61C17.3 9.61 16.66 9.88 16.06 10.41L14.47 12L15.55 13.08L17.14 11.49C17.39 11.24 17.67 11.11 18 11.11C18.33 11.11 18.63 11.24 18.88 11.49L20.5 13.08L21.55 12.05L19.95 10.41C19.36 9.88 18.7 9.61 18 9.61Z" fill="#383B58" />
-                                <line x1="0.707107" y1="8.29289" x2="13.7071" y2="21.2929" stroke="#383B58" stroke-width="2" />
+                                <line x1="0.707107" y1="8.29289" x2="13.7071" y2="21.2929" stroke="#383B58" strokeWidth="2" />
                             </svg>
                             <span className="normas-texto">Não são permitidas festas ou eventos</span>
                         </p>

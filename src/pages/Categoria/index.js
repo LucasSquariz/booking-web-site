@@ -1,26 +1,22 @@
 import './style.scss';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import useAxios from '../../hooks/useAxios';
+import useAxios from '../../hooks';
 import { useParams } from 'react-router';
 
 function Categoria() {
     const { categoria } = useParams();
-    const categorias = useAxios(`/categoria/${categoria}`);
+    const categorias = useAxios(`http://44.201.189.176:8080/categoria/${categoria}`);
     return (
         <>
-            {categorias.map((a) => {
-                return(
-                <Container key={a.id} className="categorias">
-                    <Link to={`/categoria/${a.id}`}><img src={a.url} className="imagem" alt={a.nome} /></Link>
-                    <p>Nome: {a.nome}</p>
-                    <p>Descrição: {a.descricao}</p>
-                </Container>
-                )
-            })
-            }
-        </>
-    )
+            {console.log(categorias)}
+            return(
+            <Container key={categorias.id} className="categorias">
+                <img src={categorias.url} className="imagem" alt={categorias.nome}></img>
+                <p>Nome: {categorias.nome}</p>
+                <p>Descrição: {categorias.descricao}</p>
+            </Container>
+            )            
+        </> )   
 }
 
 export default Categoria;

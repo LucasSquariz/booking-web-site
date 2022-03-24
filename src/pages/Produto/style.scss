@@ -1,6 +1,6 @@
 .container{
     margin-top: 55px;
-    width: 1200px;
+    width: 1400px;
     height: auto;
     @media(max-width:580px){
         width:auto;
@@ -115,9 +115,15 @@
 }
 
 .descricao-produto{
+    display: grid;
+    grid-template-columns: auto auto;
     h3{
         padding-bottom: 20px;
     }
+}
+
+.mapa-produto{
+    border: 0px;
 }
 
 .caracter{

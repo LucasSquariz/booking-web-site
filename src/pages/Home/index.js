@@ -7,10 +7,12 @@ import CardCategoria from '../../components/CardCategoria';
 
 
 function Home() {
+    const scrollWindow = () => {
+        window.scrollTo(0, 0)
+    }
     return (
-        <>
-            
-                <nav>
+        <>            
+                <nav onLoad={scrollWindow}>
                     <div> {/*  --- Início da barra de pesquisa --- */}
                         <ResearchHouse />
                     </div> {/*  --- Fim da barra de pesquisa --- */}

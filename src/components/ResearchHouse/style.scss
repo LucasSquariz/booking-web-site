@@ -1,85 +1,95 @@
-nav{
-  #research {
-    background-color: var(--second--color);    
-    padding: 110px 30px 90px 30px;
-    gap: 15px;
-    text-align: center;
-    h2 {
-      color: white;
-      margin-bottom: 10px;
-    }
-    div {
-      display: flex;
-      @media (max-width: 1100px) {
-        display: block;
-      }
+nav{  
+    #research {
+      background-color: var(--second--color);
+      margin-top: 55px;
+      padding: 35px 30px;
       gap: 15px;
-      margin: 0 auto;
-      width: 70%;
-      input {
-        outline: none;
-        border: none;
-        border-radius: 4px;
-        height: 40px;
+      text-align: center;
+      h2 {
+        color: white;
+        margin-bottom: 10px;
       }
-      input:not(input[type=date]) {
-        width: 40%;
-        padding-left: 30px;
-        @media (max-width: 1100px) {
-          width: 242px;
-          margin-left: -7px;
+      @media (max-width: 355px) {
+        padding:10px 5px;
+      }
+      #search{
+        @media (max-width: 355px) {
+          width: 230px;
         }
       }
-      i {
-        z-index: 2;
-        margin-right: -35px;
-        margin-top: 10px;
+      div {
+        display: flex;
         @media (max-width: 1100px) {
-          position: absolute;
-        }
-      }
-      button {
-        outline: none;
-        border: none;
-        border-radius: 4px;
-        padding: 0 15px;
-        @media (max-width: 1100px) {
-          margin-top: 10px;
-          height: 40px;
-        }
-        background-color: var(--first--color);
-        &:hover {
-          outline: 1.5px solid black;
-        }
-        &:active {
-          transition: transform ease-in-out 80ms;
-          transform: scale(1.05);
-        }
-      }
-      #dates {
-        width: 500px;
-        @media (max-width: 1100px) {
-          width: 100%;
-          margin-top: 10px;
-          display: flex;
-          justify-content: center;
-        }
-        @media (max-width: 715px) {
           display: block;
         }
-        input[type=date] {
-          width: 220px;
-          @media (max-width: 715px) {
-            justify-content: center;
-            margin-top: 10px;
+        gap: 15px;
+        margin: 0 auto;
+        width: 70%;
+        input {
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          height: 40px;
+        }
+        input:not(input[type=date]) {
+          width: 40%;
+          padding-left: 30px;
+          @media (max-width: 1100px) {
+            width: 242px;
+            margin-left: -7px;
           }
         }
-        input[type=date]::before {
-          content: attr(placeholder);
-          font-size: 12px;
-          font-weight: 700;
+        i {
+          z-index: 2;
+          margin-right: -35px;
+          margin-top: 10px;
+          @media (max-width: 1100px) {
+            position: absolute;
+          }
+        }
+        button {
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          padding: 0 15px;
+          @media (max-width: 1100px) {
+            margin-top: 10px;
+            height: 40px;
+          }
+          background-color: var(--first--color);
+          &:hover {
+            outline: 1.5px solid black;
+          }
+          &:active {
+            transition: transform ease-in-out 80ms;
+            transform: scale(1.05);
+          }
+        }
+        #dates {
+          width: 500px;
+          @media (max-width: 1100px) {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+          }
+          @media (max-width: 715px) {
+            display: block;
+          }
+          
+          input[type=date] {
+            width: 220px;
+            font-size: 12px;
+            @media (max-width: 715px) {
+              justify-content: center;
+              margin-top: 10px;
+            }
+          }
+          input[type=date]::before {
+            content: attr(placeholder);
+            font-weight: 700;
+          }
         }
       }
-    }
-  }
+    }  
 }
