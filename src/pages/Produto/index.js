@@ -1,6 +1,11 @@
+import * as React from 'react';
 import { Container } from 'react-bootstrap';
 import './style.scss';
 import LightBox from '../../components/Lightbox';
+import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import StaticDatePicker from '@mui/lab/StaticDatePicker';
 
 function Produto() {
     const images = [
@@ -16,6 +21,9 @@ function Produto() {
     const scrollWindow = () => {
         window.scrollTo(0, 0)
     }
+
+    const [value, setValue] = React.useState(new Date());
+
 
     return (
         <>
@@ -55,8 +63,11 @@ function Produto() {
 
                     </div>
                 </div> {/* --- Fim da galeria --- */}
-                <h3>Descrição</h3> {/* --- Início da descrição do produto --- */} 
-                <div className="descricao-produto">                    
+                <div className="descricao-localizacao">
+                    <h3>Descrição</h3> {/* --- Início da descrição do produto --- */}
+                    <h3>Localização</h3>
+                </div>
+                <div className="descricao-produto">
                     <div>
                         <p>Crie um bloco que cubra 100% do container que inclua:
                             Qualificação
@@ -87,7 +98,37 @@ function Produto() {
                         O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).<br></br>
                         Bloco de reserva:<br></br>
                         Deve incluir um texto em 100% da largura da tela.
-                        Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>                        
+                        Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>
+                    <div className="calendario-reserva">
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <StaticDatePicker
+                                orientation="portrait"
+                                openTo="day"
+                                value={value}
+                                showToolbar={false}                               
+                                onChange={(newValue) => {
+                                    setValue(newValue);
+                                }}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                            <StaticDatePicker
+                                orientation="portrait"
+                                openTo="day"
+                                value={value}
+                                showToolbar={false}                                                             
+                                onChange={(newValue) => {
+                                    setValue(newValue);
+                                }}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                            
+                        </LocalizationProvider>
+                        <div>
+                            <button> Iniciar reserva</button>
+                        </div>
+                    </div>
+
+
                 </div> {/* --- Fim do bloco de datas disponíveis --- */}
                 <div className="caracter"> {/* --- Início das caracteristicas do produto --- */}
                     <h3>Essa acomodação possui</h3>

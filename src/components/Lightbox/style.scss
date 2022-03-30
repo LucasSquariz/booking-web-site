@@ -32,9 +32,8 @@
 }
   
 #lightbox {      
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    display:grid;
+    grid-template-columns: repeat(4,25%);
     flex-wrap: wrap; 
     z-index: 100;
     position: fixed;

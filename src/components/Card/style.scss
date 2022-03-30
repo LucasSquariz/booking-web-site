@@ -58,6 +58,12 @@
     @media(max-width:500px){
         display:none;        
     }
+    p{
+        margin-bottom: 1rem;
+        @media(max-width: 640px){
+            margin-bottom: 0rem;
+        }
+    }
 }
 
 .avaliacao{       
@@ -74,6 +80,7 @@
 }
 
 .titulo>h3{
+    font-size: 22px;
     @media(max-width:640px){
         font-size: 14px;
         margin-bottom:0px;

@@ -60,6 +60,7 @@ const Register = () => {
     if (force === "Fraca") {
       weak.style.backgroundColor = "rgb(255, 71, 87)";
       medium.style.backgroundColor = "rgb(196, 196, 196)";
+      medium.style.backgroundColor = "rgb(196, 196, 196)";
     } else if (force === "Media") {
       medium.style.backgroundColor = "rgb(255, 165, 0)";
       strong.style.backgroundColor = "rgb(196, 196, 196)";
@@ -93,7 +94,8 @@ const Register = () => {
     errorIcon.setAttribute("id", `error${id}`)
 
     errorIcon.innerHTML ='<svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 0 24 24" width="22px" fill="rgb(255, 71, 87)"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg>'
-    errorIcon.style.position = "relative"    
+    errorIcon.style.position = "relative"
+    errorIcon.style.bottom = "-7px"
     errorIcon.style.right = "-3px"
     errorIcon.style.marginRight = "-22px"
     input.parentNode.insertBefore(errorIcon, input)
@@ -139,6 +141,12 @@ const Register = () => {
     return false
   }
 
+  const adjustHeightMain = () => {
+    const main = document.getElementById("register")
+    window.scrollTo(0 , main.scrollHeight);
+    main.style.height = "100%"
+  }
+
   const handleSubmit = ({
     name,
     secondName,
@@ -182,6 +190,7 @@ const Register = () => {
     }
 
     if (isErrorMessage()) {
+      adjustHeightMain()
       return
     }
   };
@@ -227,6 +236,7 @@ const Register = () => {
               required
               id="password"
               onKeyDown={verifyPassword}
+              onKeyUp={verifyPassword}
             />
             <Field
               className="far fa-eye fa-eye-slash"

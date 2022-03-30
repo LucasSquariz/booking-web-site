@@ -6,8 +6,12 @@ const useAxios = (url) => {
 
   useEffect(() => {
     async function loadData() {
-      const response = await api.get(url);
-      setData(response.data);
+      try {
+        const response = await api.get(url);
+        setData(response.data);
+      } catch (e) {
+        console.log(e.message)
+      }
     }
     loadData();
   }, [url]);  

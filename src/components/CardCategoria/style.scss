@@ -26,7 +26,8 @@
     box-shadow: 0 13px 27px -5px hsla(0, 20%, 98%, 0.301), 0 8px 16px -8px hsla(0, 25%, 98%, 0.301), 0 -6px 16px -6px hsla(0, 25%, 98%, 0.301);
     transition: all ease 200ms;  
     background-color: white;   
-    color:#31363F;       
+    color:#31363F; 
+    cursor: pointer;      
     &:hover{
         transform: scale(1.02);        
     }     

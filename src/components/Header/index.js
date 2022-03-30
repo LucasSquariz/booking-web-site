@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import api from "../../services/api"
 import React, { useEffect } from "react";
 import { useAuth } from "../../providers/Auth";
 import "./style.scss";
@@ -7,6 +8,19 @@ const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const { user, setUser } = useAuth()
+
+  const loadCategorys = async () => {
+    if (!sessionStorage.getItem("categorys")) {
+      try {
+        const response = await api.get("categoria")
+        console.log(response.data)
+        sessionStorage.setItem("categorys", JSON.stringify(response.data))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+  loadCategorys()
 
   useEffect(() => {
     const userStorage = localStorage.getItem("user")
@@ -97,7 +111,7 @@ const Header = () => {
       <div id="perfis">
         {location.pathname === "/login"? "": <Link className="menu" to="/login">Login</Link>}
         {location.pathname === "/register"? "":<Link className="menu" to="/register">Registrar</Link>}
-      </div>      
+      </div>
     </header>
   );
 };

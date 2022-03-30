@@ -1,7 +1,12 @@
+
 .container{
     margin-top: 55px;
-    width: 1400px;
+    width: 1200px;
     height: auto;
+    margin: 75px auto;  
+    @media(max-width:1200px){
+        width:auto;
+    }   
     @media(max-width:580px){
         width:auto;
     }    
@@ -116,7 +121,7 @@
 
 .descricao-produto{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     h3{
         padding-bottom: 20px;
     }
@@ -124,6 +129,20 @@
 
 .mapa-produto{
     border: 0px;
+    @media(max-width:1300px) {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.calendario-reserva{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.descricao-localizacao{
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 .caracter{
