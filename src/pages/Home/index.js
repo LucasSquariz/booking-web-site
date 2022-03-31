@@ -1,7 +1,6 @@
 import './style.scss';
 import ResearchHouse from '../../components/ResearchHouse';
 import Card from '../../components/Card';
-import CardCategoria from '../../components/CardCategoria';
 
 function Home() {
   // const scrollWindow = () => {
@@ -18,12 +17,8 @@ function Home() {
           <div className="img-home">
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3baa6454903837.596e6edb115db.jpg" alt="imgem-home"></img>
           </div>
-        </div>
-        <div>
-          <CardCategoria />
-        </div>
-        <div>
-          <h2 className="acomodacoes-disponiveis">Acomodações disponíveis</h2>
+        </div>        
+        <div>          
           <Card />
         </div>
       </nav>

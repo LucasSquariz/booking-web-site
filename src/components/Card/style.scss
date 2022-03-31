@@ -1,3 +1,82 @@
+// ----- CSS das categorias
+.busca-categoria{
+    background-color: var(--third--color);
+    color: white;
+    margin: 0px;      
+    padding: 50px 0px 0px 30px;
+}
+
+.categorias{           
+    display: grid;
+    grid-template-columns: auto auto auto auto; 
+    background-color: var(--third--color);       
+    a{
+        text-decoration: none;
+    }
+    @media(max-width: 670px){
+        grid-template-columns: auto auto;
+        }
+}
+
+.card-categoria{
+    width: 320px;
+    height: 320px;
+    margin:30px auto;
+    border-radius: 10px;            
+    flex-wrap: wrap;
+    box-shadow: 0 13px 27px -5px hsla(0, 20%, 98%, 0.301), 0 8px 16px -8px hsla(0, 25%, 98%, 0.301), 0 -6px 16px -6px hsla(0, 25%, 98%, 0.301);
+    transition: all ease 200ms;  
+    background-color: white;   
+    color:#31363F; 
+    cursor: pointer;      
+    &:hover{
+        transform: scale(1.02);        
+    }     
+    @media(max-width: 1300px){
+        width: 180px;
+        height: 170px;
+        margin:30px auto;
+    } 
+    @media(max-width: 830px){
+        width: 160px;
+        height: 50px;
+        text-align: center;
+        padding: 0px;
+    } 
+    @media(max-width: 500px){
+        width: 100px;
+        height: 50px;
+        font-size: small;
+        text-align: center;        
+        align-items: center;        
+    }        
+}
+
+.nome-categoria>p{    
+    text-align: center;
+    padding-top: 5px;
+    @media(max-width: 500px){
+        padding-top: 15px;
+        font-size: small;
+        text-align: center;        
+        align-items: center;        
+    } 
+}
+
+.img-card-categoria{
+    width: 320px;
+    height: 280px;
+    border-radius: 10px;
+    @media(max-width: 1300px){
+        width: 180px;
+        height: 140px;
+    }     
+    @media(max-width: 830px){
+        display: none;
+    }
+}
+
+// ----- CSS dos cards
 .grid{
     display:grid;
     grid-template-columns: auto auto;   
