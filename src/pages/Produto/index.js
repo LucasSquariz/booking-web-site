@@ -2,11 +2,7 @@ import * as React from 'react';
 import { Container } from 'react-bootstrap';
 import './style.scss';
 import LightBox from '../../components/Lightbox';
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import StaticDatePicker from '@mui/lab/StaticDatePicker';
-
+import Calendar from '../../components/Calendar';
 function Produto() {
     const images = [
         { id: 1, nome: "Imagem1", url: "https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" },
@@ -100,32 +96,8 @@ function Produto() {
                         Deve incluir um texto em 100% da largura da tela.
                         Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>
                     <div className="calendario-reserva">
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <StaticDatePicker
-                                orientation="portrait"
-                                openTo="day"
-                                value={value}
-                                showToolbar={false}                               
-                                onChange={(newValue) => {
-                                    setValue(newValue);
-                                }}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
-                            <StaticDatePicker
-                                orientation="portrait"
-                                openTo="day"
-                                value={value}
-                                showToolbar={false}                                                             
-                                onChange={(newValue) => {
-                                    setValue(newValue);
-                                }}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
-                            
-                        </LocalizationProvider>
-                        <div>
-                            <button> Iniciar reserva</button>
-                        </div>
+                        <Calendar className="calendario" />
+                            <button> Iniciar reserva</button>                        
                     </div>
 
 

@@ -136,8 +136,15 @@
 }
 
 .calendario-reserva{
-    display: grid;
-    grid-template-columns: auto auto;
+    background-color: var(--second--color);
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.calendar{
+    color: #ff5e00;
 }
 
 .descricao-localizacao{
