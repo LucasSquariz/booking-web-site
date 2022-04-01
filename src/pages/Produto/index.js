@@ -97,7 +97,9 @@ function Produto() {
                         Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>
                     <div className="calendario-reserva">
                         <Calendar className="calendario" />
-                            <button> Iniciar reserva</button>                        
+                        <div classname="div-btn">
+                            <button className="btn-reserva"> Iniciar reserva</button>
+                        </div>
                     </div>
 
 

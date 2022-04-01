@@ -3,6 +3,7 @@ import 'react-date-range/dist/theme/default.css';
 import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import { useState } from 'react';
+import { pt } from 'date-fns/locale'
 
 function Calendar() {
     const [state, setState] = useState([
@@ -22,6 +23,7 @@ function Calendar() {
             ranges={state}
             months={2}
             direction="horizontal"
+            locale={pt}
         />
     )
 }

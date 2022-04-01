@@ -5,26 +5,30 @@ import { categorias } from '../../data/categorias';
 import { useState } from 'react';
 
 function Card() {
+    //  --- início da lógica da busca por categorias --- 
     const [buscaCategoria, setBuscaCategoria] = useState(false);
-    const [escolhaCategoria, setEscolhaCategoria] = useState("")
+    const [escolhaCategoria, setEscolhaCategoria] = useState("");
+    const [cardsSelecionados, setCardsSelecionados] = useState("");
 
     function Busca(id) {
-        let filtro = booking.filter(categoria => categoria.idCategoria === id)        
+        let filtro = booking.filter(categoria => categoria.idCategoria === id)
 
-        if (!buscaCategoria) {
-            setEscolhaCategoria(filtro)
-            setBuscaCategoria(true)            
-        } else if (buscaCategoria && filtro[0].idCategoria != id) {
-            setEscolhaCategoria(filtro)                
-        } else {
+        if (!buscaCategoria || buscaCategoria && escolhaCategoria != id) {
+            setCardsSelecionados(filtro)
+            setEscolhaCategoria(id)
+            setBuscaCategoria(true)
+        } else if (buscaCategoria && escolhaCategoria == id) {
+            setCardsSelecionados("")
             setEscolhaCategoria("")
-            setBuscaCategoria(false)            
+            setBuscaCategoria(false)
         }
     }
+    //  --- Fim da lógica da busca por categorias --- 
 
     return (
         <>
-            <h2 className="busca-categoria">Busca por categoria</h2> {/*  --- início das categorias --- */}
+            {/*  --- início das categorias --- */}
+            <h2 className="busca-categoria">Busca por categoria</h2>
             <div className="categorias">
                 {categorias.map((a) =>
                     <div key={a.id} >
@@ -38,9 +42,12 @@ function Card() {
                         </div>
                     </div>
                 )}
-            </div> {/*  --- Fim das categorias --- */}
+            </div>
+            {/*  --- Fim das categorias --- */}
+
+            {/* ---- Início do grid de cards ---- */}
             <h2 className="acomodacoes-disponiveis">Acomodações disponíveis</h2>
-            <div className="grid"> {/* ---- Início do grid de cards ---- */}                
+            <div className="grid">
                 {!buscaCategoria ?
                     booking.map((a) =>
                         <div className="card" key={a.id}>
@@ -75,7 +82,7 @@ function Card() {
                             </div>
                         </div>
                     )
-                    : buscaCategoria && escolhaCategoria != "" ? escolhaCategoria.map((a) =>
+                    : buscaCategoria && escolhaCategoria != "" ? cardsSelecionados.map((a) =>
                         <div className="card" key={a.id}>
                             <div>
                                 <Link to="/produto"><img className="img-card" src={a.url} alt={a.name}></img></Link>
@@ -109,8 +116,9 @@ function Card() {
                         </div>
                     )
                         : ""
-                },                
-            </div> {/* ---- Fim do grid de cards ---- */}
+                },
+            </div>
+            {/* ---- Fim do grid de cards ---- */}
         </>
     )
 }
