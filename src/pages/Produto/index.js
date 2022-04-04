@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Container } from 'react-bootstrap';
 import './style.scss';
 import LightBox from '../../components/Lightbox';
-import Calendar from '../../components/Calendar';
+import Calendar1 from '../../components/Calendar/calendar1';
+import Calendar2 from '../../components/Calendar/calendar2';
 function Produto() {
     const images = [
         { id: 1, nome: "Imagem1", url: "https://betaimages.lopes.com.br/realestate/sml/REO297712/5CFACCDFF2BA3BF203708E56FEA3851B.JPG" },
@@ -56,53 +57,44 @@ function Produto() {
                             <img className="img-secundaria" src={images[4].url} alt="principal"></img>
                             <LightBox />
                         </div>
-
                     </div>
                 </div> {/* --- Fim da galeria --- */}
-                <div className="descricao-localizacao">
-                    <h3>Descrição</h3> {/* --- Início da descrição do produto --- */}
-                    <h3>Localização</h3>
-                </div>
-                <div className="descricao-produto">
-                    <div>
-                        <p>Crie um bloco que cubra 100% do container que inclua:
-                            Qualificação
-                            Texto de descrição do produto.
-                        </p>
-                    </div>
-                    <div>
-                        <iframe className="mapa-produto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58517.64389928515!2d-46.67166959470597!3d-23.555771399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1648075086681!5m2!1spt-BR!2sbr" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div> {/* --- Fim da descrição do produto --- */}
-                <div> {/* --- Início do bloco de datas disponíveis --- */}
-                    <h3>Criar bloco de datas disponíveis e botão de reserva</h3>
-                    <p>Desktop<br></br>
-                        Deve incluir um calendário alinhado à esquerda e que ocupe (⅔ partes da grade de conteúdo) que mostre 2 meses simultaneamente que indique as datas disponíveis e indisponíveis.
-                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).
-                        O bloco de reserva deve ocupar ⅓ parte da grade de conteúdo:
-                        Alinhe-o à direita do calendário.
-                        Deve incluir um texto.
-                        Deve incluir um botão “Iniciar Reserva” (sem eventos).<br></br>
-                        Tablet<br></br>
-                        Deve incluir um calendário a 100% da largura do contêiner mostrando 2 meses simultaneamente indicando as datas disponíveis e indisponíveis.
-                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).
-                        Bloco de reserva com uma grade de 2 colunas:
-                        Deve incluir um texto.
-                        Deve incluir um botão “Iniciar Reserva” (sem eventos).<br></br>
-                        Telefone<br></br>
-                        Deve incluir um calendário em 100% da largura do contêiner mostrando 1 mês simultaneamente indicando as datas disponíveis e indisponíveis.
-                        O calendário só deve permitir a navegação entre meses diferentes. (sua finalidade é apenas a exibição de disponibilidade).<br></br>
-                        Bloco de reserva:<br></br>
-                        Deve incluir um texto em 100% da largura da tela.
-                        Deve incluir um botão "Iniciar Reserva" (sem eventos) em 100% da largura da tela. </p>
-                    <div className="calendario-reserva">
-                        <Calendar className="calendario" />
-                        <div classname="div-btn">
-                            <button className="btn-reserva"> Iniciar reserva</button>
+                <div className="descricao-produto"> {/* --- Início da descrição e localização do produto --- */}
+                    <div className="descricao-localizacao">
+                        <div>
+                            <div>
+                                <h3>Descrição</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id orci id nibh lobortis luctus. Vestibulum tempor commodo lacus, dictum iaculis nibh dictum et. Vivamus et est quam. Nunc purus nulla, elementum id orci sit amet, malesuada sagittis libero. Fusce et blandit purus. Aenean vestibulum sit amet ante sed sollicitudin. Curabitur ac lacinia tortor. Pellentesque vehicula eu est ut finibus. Vestibulum erat lorem, bibendum porta magna eu, rutrum finibus nunc. Integer a luctus ipsum. Quisque placerat risus a ante mollis ullamcorper. Duis eleifend neque tortor, sed tristique sapien sagittis sit amet. Nulla nulla arcu, dignissim ac ex in, condimentum mollis risus. Nunc leo dolor, posuere non consectetur ac, rhoncus sit amet quam. Duis sed metus ante. 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id orci id nibh lobortis luctus. Vestibulum tempor commodo lacus, dictum iaculis nibh dictum et. Vivamus et est quam. Nunc purus nulla, elementum id orci sit amet, malesuada sagittis libero. Fusce et blandit purus. Aenean vestibulum sit amet ante sed sollicitudin. Curabitur ac lacinia tortor. Pellentesque vehicula eu est ut finibus. Vestibulum erat lorem, bibendum porta magna eu, rutrum finibus nunc. Integer a luctus ipsum. Quisque placerat risus a ante mollis ullamcorper. Duis eleifend neque tortor, sed tristique sapien sagittis sit amet. Nulla nulla arcu, dignissim ac ex in, condimentum mollis risus. Nunc leo dolor, posuere non consectetur ac, rhoncus sit amet quam. Duis sed metus ante.                                   
+                                </p>
+                            </div>
+                        </div>
+                        <div className="mapa-produto">
+                            <div>
+                                <h3>Localização</h3>
+                                <iframe className="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58517.64389928515!2d-46.67166959470597!3d-23.555771399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1648075086681!5m2!1spt-BR!2sbr" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                         </div>
                     </div>
 
+                </div> {/* --- Fim da descrição e localização  do produto --- */}
 
+                <div> {/* --- Início do bloco de datas disponíveis --- */}
+                    <div className="div-calendario">
+                        <h3>Veja a disponibilidade das datas e faça sua reserva!</h3>
+                        <div className="calendario-reserva">
+                            <div className="calendario1">
+                                <Calendar1 />
+                                {console.log(Calendar1.state)}
+                            </div>
+                            <div className="calendario2">
+                                <Calendar2 />
+                            </div>
+                            <div className="div-btn">
+                                <button className="btn-reserva"> Iniciar reserva</button>
+                            </div>
+                        </div>
+                    </div>
                 </div> {/* --- Fim do bloco de datas disponíveis --- */}
                 <div className="caracter"> {/* --- Início das caracteristicas do produto --- */}
                     <h3>Essa acomodação possui</h3>
