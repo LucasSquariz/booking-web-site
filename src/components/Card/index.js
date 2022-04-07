@@ -1,32 +1,37 @@
 import './style.scss';
 import { Link } from "react-router-dom";
 import { booking } from '../../data/booking';
-import { categorias } from '../../data/categorias';
 import { useState } from 'react';
+import useAxios from '../../hooks/useAxios';
+import { categorias } from '../../data/categorias';
+
 
 function Card() {
     //  --- início da lógica da busca por categorias --- 
     const [buscaCategoria, setBuscaCategoria] = useState(false);
     const [escolhaCategoria, setEscolhaCategoria] = useState("");
     const [cardsSelecionados, setCardsSelecionados] = useState("");
+    //const categorias = useAxios("/categoria");
+    // const booking = useAxios("/produto");
 
     function Busca(id) {
-        let filtro = booking.filter(categoria => categoria.idCategoria === id)
+        let filtro = booking.filter(categoria => categoria.idCategoria === id)        
 
         if (!buscaCategoria || buscaCategoria && escolhaCategoria != id) {
             setCardsSelecionados(filtro)
             setEscolhaCategoria(id)
             setBuscaCategoria(true)
+            window.scrollTo(0, 10000)
         } else if (buscaCategoria && escolhaCategoria == id) {
             setCardsSelecionados("")
             setEscolhaCategoria("")
-            setBuscaCategoria(false)
+            setBuscaCategoria(false)            
         }
     }
     //  --- Fim da lógica da busca por categorias --- 
 
     return (
-        <>
+        <>        
             {/*  --- início das categorias --- */}
             <h2 className="busca-categoria">Busca por categoria</h2>
             <div className="categorias">
@@ -44,7 +49,6 @@ function Card() {
                 )}
             </div>
             {/*  --- Fim das categorias --- */}
-
             {/* ---- Início do grid de cards ---- */}
             <h2 className="acomodacoes-disponiveis">Acomodações disponíveis</h2>
             <div className="grid">
@@ -77,7 +81,7 @@ function Card() {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ex quis diam bibendum aliquet vel non tellus.  </p>
                                 </div>
                                 <div className="btn">
-                                    <Link to="/produto"><button className="btn-produto">Ver mais</button></Link>
+                                    <Link to={`/produto/${a.id}`}><button className="btn-produto">Ver mais</button></Link>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +114,7 @@ function Card() {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ex quis diam bibendum aliquet vel non tellus.  </p>
                                 </div>
                                 <div className="btn">
-                                    <Link to="/produto"><button className="btn-produto">Ver mais</button></Link>
+                                    <Link to={`/produto/${a.id}`}><button className="btn-produto">Ver mais</button></Link>
                                 </div>
                             </div>
                         </div>

@@ -66,7 +66,7 @@
 .galeria-imagens{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+    border-bottom: 1px solid #00000034;
     padding-bottom: 50px;
     width: auto;
     height: auto;
@@ -115,8 +115,7 @@
     width: auto;
     height: auto;
     margin: 0px;
-    padding: 50px 0px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.356);
+    padding: 50px 0px;    
 }
 
 .descricao-localizacao{
@@ -130,6 +129,10 @@
     }
 }
 
+#descricao{        
+    background-color: white;
+}
+
 .descricao-produto{        
     border-radius: 5px;
     padding: 5vh 0vh;    
@@ -138,16 +141,22 @@
     }
     p{
         width: 100%;
+        padding:2vh 0vh;
     }
     
 }
 
 .mapa-produto{
     border: 0px;     
-    max-width: 580px;  
+    max-width: 580px;      
+    width: 100%;
+    background-color: white;
     @media(max-width:1200px) {
         width: 400px;        
-    }    
+    }   
+    @media(max-width:400px) {
+        width: 330px;        
+    }  
 }
 
 .mapa{
@@ -155,10 +164,12 @@
 }
 
 .div-calendario{
-    background-color:var(--second--color);    
+    background-color:var(--second--color);     
+    box-shadow: 0 0 1em rgba(17, 17, 24, 0.468);    
+    border-radius: 15px;
     h3{
         color: white; 
-        padding: 3vh 0vh 0vh 0vh;           
+        padding: 3vh 0vh 0vh 2vh;           
         font-size: 28px;  
         align-items: center; 
         justify-content: center;
@@ -176,7 +187,7 @@
     display: flex;
     align-items: center;
     justify-content: center;    
-    @media(min-width:768px){
+    @media(min-width:769px){
         display:none;
     }
 }
@@ -200,6 +211,9 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    a{
+        text-decoration: none;
+    }
 }
     
 
@@ -212,7 +226,7 @@
     height: 40px;
     border:none;
     border-radius: 15px;
-    background-color: var(--first--color);
+    background-color: var(--first--color);    
     &:hover{
         background-color: rgb(172, 131, 28);
     }
@@ -225,7 +239,9 @@
     }    
 }
 
-.caracter{
+.caracter{   
+    margin-top: 2vh; 
+    background-color: white;   
     h3{
         padding-top: 50px;
     }
@@ -250,41 +266,4 @@
     position:absolute;
     bottom: 10px;
     right: 10px;
-}
-
-.politica{
-    padding: 50px 0px;
-    display: grid;
-    grid-template-columns: auto auto auto; 
-    @media(max-width: 1200px){
-        grid-template-columns: auto auto; 
-    } 
-    @media(max-width: 640px){
-        grid-template-columns: auto; 
-    }   
-}
-
-.normas, .cancelamento, .seguranca{
-    h5{
-        padding-bottom: 20px;
-        font-style:oblique;
-    }
-}
-
-.normas-texto{
-    padding: 0px 10px 5px 10px;
-}
-
-.seguranca{    
-    padding: 0px 10px;
-    @media(max-width: 640px){
-        padding-top: 20px; 
-    }
-}
-
-.cancelamento{
-    padding-left: 10px;
-    @media(max-width: 1200px){
-        padding-top: 20px; 
-    }
 }

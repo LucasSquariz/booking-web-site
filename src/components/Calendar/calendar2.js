@@ -4,6 +4,7 @@ import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import { useState } from 'react';
 import { pt } from 'date-fns/locale'
+import './style.scss';
 
 function Calendar2() {
     const [state, setState] = useState([

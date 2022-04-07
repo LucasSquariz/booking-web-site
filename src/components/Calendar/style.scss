@@ -1,0 +1,28 @@
+.div-btn {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+
+.btn-reserva{  
+    display:flex;
+    justify-content: center;
+    align-items: center;  
+    margin-top:5vh;     
+    width: 230px;
+    height: 40px;
+    border:none;
+    border-radius: 15px;
+    background-color: var(--first--color);
+    &:hover{
+        background-color: rgb(172, 131, 28);
+    }
+    @media(max-width:1250px){
+
+        width: 150px;
+    }
+    @media(max-width: 640px){
+        width: 100px;                     
+    }    
+}

@@ -1,0 +1,38 @@
+.politica{
+    padding: 50px 0px 0px 0px;
+    margin-top: 25px;
+    border-top: 1px solid #00000034;
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    @media(max-width: 1200px){
+        grid-template-columns: auto auto; 
+    } 
+    @media(max-width: 640px){
+        grid-template-columns: auto; 
+    }   
+}
+
+.normas, .cancelamento, .seguranca{
+    h5{
+        padding-bottom: 20px;
+        font-style:oblique;
+    }
+}
+
+.normas-texto{
+    padding: 0px 10px 5px 10px;
+}
+
+.seguranca{    
+    padding: 0px 10px;
+    @media(max-width: 640px){
+        padding-top: 20px; 
+    }
+}
+
+.cancelamento{
+    padding-left: 10px;
+    @media(max-width: 1200px){
+        padding-top: 20px; 
+    }
+}

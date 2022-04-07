@@ -1,0 +1,113 @@
+.container{
+    margin-top: 55px;
+    width: 1200px;
+    height: 100%;
+    margin: 18vh auto;     
+    @media(max-width:1200px){
+        width:auto;
+    }   
+    @media(max-width:580px){
+        width:auto;
+    } 
+}
+
+.grid-reserva{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    @media(max-width:1200px){
+        grid-template-columns: auto;
+    }
+}
+
+.nome-e-botao-voltar{
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+    h3{
+        padding-bottom: 5vh;
+    }
+}
+
+.bloco-reserva{
+    display: flex; 
+    flex-direction: column;         
+    background-color:var(--second--color);     
+    box-shadow: 0 0 1em rgba(17, 17, 24, 0.468);
+    border-radius: 15px;  
+    color: white;     
+}
+
+#reserva-box{
+    margin: 2vh 3vh;
+}
+
+.detalhe-reserva>h3{  
+    display: flex;         
+    justify-content: center;    
+    font-size: 24px;    
+    padding-bottom: 1vh;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.49);
+}
+
+.categoria-nome-localizacao-reserva{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.categoria-reserva{
+    font: 12px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.425); 
+    margin-bottom: 10px;   
+}   
+
+.nome-reserva{
+    font-size: 24px;
+}
+
+.detalhes-reserva-img{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 2vh 0vh 3vh 0vh;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.49);
+}
+
+.img-reserva{
+    width: 138px;
+    height: 121px;    
+}
+
+.checkin-out{
+    padding-top: 3vh;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.checkin{
+    padding: 1vh 0vh;
+}
+
+.checkout{
+    padding: 1vh 0vh 2vh 0vh;
+}
+
+.btn-confirmar-reserva{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 13vh;
+    height: 40px;
+    border:none;
+    border-radius: 15px;
+    background-color: var(--first--color);    
+    &:hover{
+        background-color: rgb(172, 131, 28);
+    }
+    @media(max-width:1250px){
+
+        width: 150px;
+    }
+    @media(max-width: 640px){
+        width: 100px;                     
+    }    
+}
