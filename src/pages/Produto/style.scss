@@ -1,15 +1,10 @@
-
-.container{
-    margin-top: 55px;
+.container1{    
     width: 1200px;
     height: auto;
-    margin: 75px auto;  
+    margin: 6vh auto;  
     @media(max-width:1200px){
         width:auto;
-    }   
-    @media(max-width:580px){
-        width:auto;
-    }    
+    }          
 }
 
 .cabecalho{
@@ -21,14 +16,20 @@
 }
 
 .categoria-produto{
-    font: 20px;
+    font-size: 20px;
     font-style: italic;
     color: rgba(0, 0, 0, 0.356); 
-    margin-bottom: 10px;   
+    margin-bottom: 10px;  
+    @media(max-width:1200px){
+        font-size: 12px;
+    } 
 }   
 
 .nome-produto{
     font-size: 32px;
+    @media(max-width:1200px){
+        font-size: 20px;
+    } 
 }
 
 .avaliacao-localizacao{
@@ -166,7 +167,7 @@
 .div-calendario{
     background-color:var(--second--color);     
     box-shadow: 0 0 1em rgba(17, 17, 24, 0.468);    
-    border-radius: 15px;
+    border-radius: 15px;    
     h3{
         color: white; 
         padding: 3vh 0vh 0vh 2vh;           
@@ -193,8 +194,7 @@
 }
 
 .calendario-reserva{
-    background-color: var(--second--color);
-    width: 100%;
+    background-color: var(--second--color);   
     height: auto;
     border-radius: 15px;
     display:grid;

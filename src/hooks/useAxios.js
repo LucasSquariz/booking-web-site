@@ -2,20 +2,20 @@ import { useEffect, useState } from 'react';
 import api from '../services/api';
 
 const useAxios = (url) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]);  
 
   useEffect(() => {
     async function loadData() {
       try {
         const response = await api.get(url);
-        setData(response.data);
+        setData(response.data);        
       } catch (e) {
         console.log(e.message)
       }
     }
     loadData();
-  }, [url]);  
-  return data;
+  }, [setData]); 
+  return data;   
 }
 
 export default useAxios;

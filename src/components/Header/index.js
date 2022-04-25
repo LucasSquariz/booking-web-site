@@ -10,11 +10,11 @@ const Header = () => {
   const { user, setUser } = useAuth()
 
   const loadCategorys = async () => {
-    if (!sessionStorage.getItem("categorys")) {
+    if (!sessionStorage.getItem("categories")) {
       try {
         const response = await api.get("categoria")
         console.log(response.data)
-        sessionStorage.setItem("categorys", JSON.stringify(response.data))
+        sessionStorage.setItem("categories", JSON.stringify(response.data))
       } catch (err) {
         console.log(err)
       }
@@ -69,7 +69,8 @@ const Header = () => {
       closePerfil.style.cursor = "pointer"
 
       circlePerfil.innerText = `${JSON.parse(userStorage).email[0].toUpperCase()}${JSON.parse(userStorage).email[1].toUpperCase()}`
-      namePerfil.innerHTML = `Olá, <br/><span style="color: var(--first--color);">${JSON.parse(userStorage).email}</span>`
+      const name = JSON.parse(userStorage).name
+      namePerfil.innerHTML = `Olá, <br/><span style="color: var(--first--color);">${name[0].toUpperCase()}${name.slice(1, name.length)}</span>`
     }
   }, [user])
 

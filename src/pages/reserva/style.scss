@@ -1,14 +1,8 @@
-.container{
-    margin-top: 55px;
-    width: 1200px;
+.container-reserva{    
+    width: 85%;
     height: 100%;
     margin: 18vh auto;     
-    @media(max-width:1200px){
-        width:auto;
-    }   
-    @media(max-width:580px){
-        width:auto;
-    } 
+    
 }
 
 .grid-reserva{
@@ -28,16 +22,21 @@
 }
 
 .bloco-reserva{
-    display: flex; 
-    flex-direction: column;         
+            
     background-color:var(--second--color);     
     box-shadow: 0 0 1em rgba(17, 17, 24, 0.468);
     border-radius: 15px;  
-    color: white;     
+    color: white; 
+    margin-left: 7vh; 
+    height: auto; 
+    @media(max-width:1200px){
+        margin-right: 7vh;
+    }  
 }
 
 #reserva-box{
     margin: 2vh 3vh;
+    height: 100%;
 }
 
 .detalhe-reserva>h3{  
@@ -61,7 +60,7 @@
 }   
 
 .nome-reserva{
-    font-size: 24px;
+    font-size: 20px;    
 }
 
 .detalhes-reserva-img{
@@ -73,7 +72,8 @@
 
 .img-reserva{
     width: 138px;
-    height: 121px;    
+    height: 121px;   
+    margin-right: 1vh; 
 }
 
 .checkin-out{
@@ -95,19 +95,70 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 13vh;
+    margin-top: 50vh;
     height: 40px;
     border:none;
     border-radius: 15px;
     background-color: var(--first--color);    
     &:hover{
         background-color: rgb(172, 131, 28);
+    }      
+    @media(max-width:1200px){
+        margin-top: 5vh;
     }
-    @media(max-width:1250px){
-
-        width: 150px;
-    }
-    @media(max-width: 640px){
-        width: 100px;                     
-    }    
 }
+
+.calendario1-reserva{
+    @media(max-width:768px){
+        display:none;
+    }
+}
+
+.calendario2-reserva{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    @media(min-width:769px){
+        display:none;
+    }
+}
+
+
+.formulario-reserva{
+    display:flex;
+    flex-direction: column;            
+    margin-bottom: 3vh;    
+    border-radius: 5px;  
+    width: 100%;  
+}
+
+#campo-formulario-reserva{
+    border: none;
+    background-color: #ffffff;    
+}
+
+#campo-formulario-reserva-cidade{
+    margin-bottom: 0.5vh;
+}
+
+.campo-disabled{
+    font-size: larger;    
+    border: none;
+    background-color: white;
+    color: #263238;
+    margin-bottom: 0.5vh;
+}
+
+.titulo-campo-reserva{
+    color:#00000069;
+    font-size: 12px;
+}
+
+.campo-reserva{    
+    width: 100%;   
+    border-bottom: 1px solid rgba(0, 0, 0, 0.186); 
+}
+.rdrCalendarWrapper, .rdrDateRangeWrapper, .rdrMonth{
+    width: 100%;
+} 
+

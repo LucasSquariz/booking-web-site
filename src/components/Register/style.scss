@@ -15,8 +15,8 @@
     #nameComplete {
       padding: 0;
       width: 316px;
-      
       display: flex;
+
       @media (max-width: 576px) {
         align-items: center;
         justify-content: center;

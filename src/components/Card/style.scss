@@ -219,6 +219,7 @@ a{
     border:none;
     border-radius: 15px;
     background-color: var(--first--color);
+    cursor:pointer;
     &:hover{
         background-color: rgb(172, 131, 28);
     }

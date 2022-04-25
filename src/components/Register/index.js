@@ -1,8 +1,12 @@
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
+import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
 const Register = () => {
+  const navigate = useNavigate()
+
   function hiden(e) {
     const password = document.getElementById("password");
     const hidenEl = document.getElementById("hiden");
@@ -60,7 +64,7 @@ const Register = () => {
     if (force === "Fraca") {
       weak.style.backgroundColor = "rgb(255, 71, 87)";
       medium.style.backgroundColor = "rgb(196, 196, 196)";
-      medium.style.backgroundColor = "rgb(196, 196, 196)";
+      strong.style.backgroundColor = "rgb(196, 196, 196)";
     } else if (force === "Media") {
       medium.style.backgroundColor = "rgb(255, 165, 0)";
       strong.style.backgroundColor = "rgb(196, 196, 196)";
@@ -147,7 +151,7 @@ const Register = () => {
     main.style.height = "100%"
   }
 
-  const handleSubmit = ({
+  const handleSubmit = async ({
     name,
     secondName,
     email,
@@ -193,6 +197,34 @@ const Register = () => {
       adjustHeightMain()
       return
     }
+
+    try {
+      const response = await api.post("/usuario/salvar", {
+        email,
+        nome: name,
+        papeis: null,
+        senha: password,
+        sobrenome: secondName
+      })
+      const main = document.getElementById("register")
+      const divSuccess = document.createElement("div")
+      const h1 = document.createElement("h1")
+      const h3 = document.createElement("h3")
+      main.textContent = ""
+      main.appendChild(divSuccess)
+      divSuccess.appendChild(h1)
+      divSuccess.appendChild(h3)
+      divSuccess.style.textAlign = "center"
+      divSuccess.style.marginTop = "50px"
+      h1.style.color = "rgb(34, 172, 91)"
+      h1.innerText = "Registrado com sucesso!"
+      h3.innerText = "Aguarde, você será redirecionado em 5 segundos"
+      setTimeout(()=> {
+        navigate("/")
+      }, 5000)
+    } catch (e) {
+      errorMesages("Usuário já cadastrado")
+    }
   };
 
   return (
@@ -236,7 +268,7 @@ const Register = () => {
               required
               id="password"
               onKeyDown={verifyPassword}
-              onKeyUp={verifyPassword}
+              onKeyPress={verifyPassword}
             />
             <Field
               className="far fa-eye fa-eye-slash"

@@ -4,7 +4,6 @@ import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import { useState } from 'react';
 import { pt } from 'date-fns/locale'
-import './style.scss';
 
 function Calendar2() {
     const [state, setState] = useState([
@@ -16,10 +15,17 @@ function Calendar2() {
         }
     ])
 
+    function SalvarData(item) {
+        localStorage.setItem('data', JSON.stringify(item));
+    }
+
     return (
         <DateRange            
             editableDateInputs={true}
-            onChange={item => setState([item.selection])}
+            onChange={state => {
+                SalvarData(state.selection)
+                setState([state.selection])
+            }}
             moveRangeOnFirstSelection={false}
             ranges={state}
             months={1}
