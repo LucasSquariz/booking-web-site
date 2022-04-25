@@ -4,7 +4,6 @@ import { Formik, Form, Field } from "formik";
 import Politica from '../../components/PoliticaProduto';
 import Calendar1 from '../../components/Calendar/calendar1';
 import Calendar2 from '../../components/Calendar/calendar2';
-import { useEffect, useState } from 'react';
 
 function Reserva() {    
     let produtos = JSON.parse(localStorage.getItem('produto'));       
