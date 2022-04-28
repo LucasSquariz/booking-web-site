@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header, Footer } from "../components";
 import { LoginPage, RegisterPage, Home } from "../pages";
 import { AuthProvider } from "../providers/Auth";
-import Produto from "../pages/Produto/index";
-import Reserva from "../pages/Reserva/index";
+import Produto from "../pages/Produto";
+import Reserva from "../pages/Reserva";
 
 const RouteList = () => {
   return (

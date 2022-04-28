@@ -4,33 +4,38 @@ import { Formik, Form, Field } from "formik";
 import Politica from '../../components/PoliticaProduto';
 import Calendar1 from '../../components/Calendar/calendar1';
 import Calendar2 from '../../components/Calendar/calendar2';
+import { useEffect, useState } from 'react';
 
-function Reserva() {    
-    let produtos = JSON.parse(localStorage.getItem('produto'));       
+function Reserva() {  
+    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')))
+    const [click, setClick] = useState(false)
+    const produtos = JSON.parse(localStorage.getItem('produto'));       
     // document.getElementById("checkIn").innerHTML = "New text!";
 
     const scrollWindow = () => {
         window.scrollTo(0, 0)
-    }
+    }   
 
-    // ----- Formatar datas
-    const usuario = JSON.parse(localStorage.getItem('user'));
-    const datas = JSON.parse(localStorage.getItem('data'));
-    const dataStart = JSON.stringify(datas.startDate.split(['-']))
+    useEffect(() => {
+        setData(JSON.parse(localStorage.getItem('data')))               
+    },[click])  
+
+    // ----- Formatar datas    
+    const dataStart = JSON.stringify(data.startDate.split(['-']))
     const dataStartFormatada = dataStart[14] + dataStart[15] + '/' + dataStart[9] + dataStart[10] + '/' + dataStart[4] + dataStart[5]
-    const dataEnd = JSON.stringify(datas.endDate.split(['-']))
+    const dataEnd = JSON.stringify(data.endDate.split(['-']))
     const dataEndFormatada = dataEnd[14] + dataEnd[15] + '/' + dataEnd[9] + dataEnd[10] + '/' + dataEnd[4] + dataEnd[5]
-
+    
     // ----- Formatar nome
+    const usuario = JSON.parse(localStorage.getItem('user'));
     const nomeCompleto = usuario.name;
     const nome = nomeCompleto.split([' '])
 
-    const horaChegada = document.getElementById('hora-chegada');   
-
+    
 
     return (
         <>                  
-            <div className="container-reserva" onLoad={scrollWindow}>
+            <div className="container-reserva" onLoad={scrollWindow} onClick={() => setClick(!click)}>
                 <div className="grid-reserva">
                     <div>
                         <div className="nome-e-botao-voltar">
@@ -63,7 +68,7 @@ function Reserva() {
                                                 <label className="titulo-campo-reserva" htmlFor="firstName">Nome: </label>
                                             </div>
                                             <div>
-                                                <Field className="campo-disabled" id="campo-formulario-reserva disabled" name="firstName" value={nome[0]} disabled />
+                                                <Field className="campo-disabled" id="campo-formulario-reserva disabled" name="firstName" value={nome[0] == '' ? nome[1] : nome[0]} disabled />
                                             </div>
                                         </div>
 
@@ -72,7 +77,7 @@ function Reserva() {
                                                 <label className="titulo-campo-reserva" htmlFor="lastName">Sobrenome: </label>
                                             </div>
                                             <div>
-                                                <Field className="campo-disabled" name="lastName" value={nome[1]} disabled />
+                                                <Field className="campo-disabled" name="lastName" value={nome[0] == '' ? nome[2] : nome[1]} disabled />
                                             </div>
                                         </div>
 
@@ -137,7 +142,7 @@ function Reserva() {
                                 </Formik>
                             </div>
                         </div>
-                        <div className="calendario1-reserva">
+                        <div className="calendario1-reserva" >
                             <Calendar1 />
                         </div>
                         <div className="calendario2-reserva">

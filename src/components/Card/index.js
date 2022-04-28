@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { booking } from '../../data/booking';
 import { useState } from 'react';
 import useAxios from '../../hooks/useAxios';
+import Home from '../../pages/Home/index'
 
 function Card() {
     // Função para dar fetch na api e salvar o produto no localStorage (estava dando problema no useAxios para carregar as imagens)
     function pegarProduto(idDoProduto) {
-        const dadosDoProduto = fetch(`http://3.84.14.14:8080/produto/${idDoProduto}`)
+        const dadosDoProduto = fetch(`http://44.203.195.230:8080/produto/${idDoProduto}`)
             .then(function(respostaDoServidor) {
 
                 // 2. Pedir a resposta do JSON ao servidor.
@@ -21,7 +22,7 @@ function Card() {
                 // 4. Capturei a resposta do servidor do JSON.
                 localStorage.setItem('produto', JSON.stringify(produto));
             });
-    }
+    }    
 
     // /**
     //  * Pedir os dados de cadastro do usuário.
@@ -103,11 +104,11 @@ function Card() {
                         booking.map((a) =>
                             <div className="card" key={a.id}>
                                 <div>
-                                    <Link to={`/produto/${a.id}`}><img className="img-card" src={a.url} alt={a.name} ></img></Link>
+                                    <Link to={`/produto/${a.id}`}><img className="img-card" src={a.url} alt={a.nome} ></img></Link>
                                 </div>
                                 <div className="texto">
                                     <div className="avaliacao">
-                                        <p> <span className="avaliacao-texto">Avaliação </span>
+                                        <p> <span className="avaliacao-texto" >Avaliação </span>
                                             <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.27778 0L8.91174 4.83688H14.1994L9.92159 7.82624L11.5555 12.6631L7.27778 9.67376L3.00001 12.6631L4.63397 7.82624L0.3562 4.83688H5.64382L7.27778 0Z" fill="#FBC02D" /></svg>
                                             <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.27778 0L8.91174 4.83688H14.1994L9.92159 7.82624L11.5555 12.6631L7.27778 9.67376L3.00001 12.6631L4.63397 7.82624L0.3562 4.83688H5.64382L7.27778 0Z" fill="#FBC02D" /></svg>
                                             <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.27778 0L8.91174 4.83688H14.1994L9.92159 7.82624L11.5555 12.6631L7.27778 9.67376L3.00001 12.6631L4.63397 7.82624L0.3562 4.83688H5.64382L7.27778 0Z" fill="#FBC02D" /></svg>
@@ -116,7 +117,7 @@ function Card() {
                                         </p>
                                     </div>
                                     <div className="titulo">
-                                        <h3>{a.name}</h3>
+                                        <h3>{a.nome}</h3>
                                     </div>
                                     <div className="localizacao">
                                         <p>
@@ -161,7 +162,7 @@ function Card() {
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ex quis diam bibendum aliquet vel non tellus.  </p>
                                     </div>
                                     <div className="btn">
-                                        <Link to={`/produto/${a.id}`}><button className="btn-produto">Ver mais</button></Link>
+                                        <Link to={`/produto/${a.id}`}><button className="btn-produto" onClick={() => pegarProduto(a.id)}>Ver mais</button></Link>
                                     </div>
                                 </div>
                             </div>

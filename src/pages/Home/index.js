@@ -7,6 +7,10 @@ import { useEffect, useState } from "react";
 function Home() {
   const [show, setShow] = useState(false);
 
+  function FalarOi(){
+    console.log("oi")
+  }
+
   // const scrollWindow = () => {
   //   window.scrollTo(0, 0);
   // };
@@ -36,7 +40,7 @@ function Home() {
           </div>
         </div>        
         <div>
-          <Card />
+          <Card FalarOi={FalarOi}/>
         </div>
       </nav>
     </>

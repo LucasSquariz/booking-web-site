@@ -6,33 +6,31 @@ import Calendar2 from '../../components/Calendar/calendar2';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Politica from '../../components/PoliticaProduto';
+import { useEffect, useState } from 'react';
 
 function Produto() {
-    const { produto } = useParams();     
+    const { produto } = useParams();  
+    
+    const [produtoreserva,setProdutoreserva] = useState(JSON.parse(localStorage.getItem('produto')));     
 
     const scrollWindow = () => {
         window.scrollTo(0, 0)
     }
-
-    const produtos = JSON.parse(localStorage.getItem('produto'));
+      
     const logado = JSON.parse(localStorage.getItem('user'));
 
-    // function recarregarPagina(){
-    //     if(produtos.id != ){
-    //          window.location.reload()
-    //     } else{
-
-    //     }
-    // }
+    useEffect(() => {        
+        setProdutoreserva(JSON.parse(localStorage.getItem('produto')))        
+    },[produtoreserva]);
+    
     return (
-
-        <>            
+        <>         
             <div id="produto-page" >                
                     <div className="container1" onLoad={scrollWindow}>
                         <div> {/* --- Início do cabeçalho --- */}
                             <div className="cabecalho">
                                 <div>
-                                    <span className="categoria-produto">{produtos?.categorias?.nome}</span> | <span className="nome-produto">{produtos.nome}</span>
+                                    <span className="categoria-produto">{produtoreserva?.categorias?.nome}</span> | <span className="nome-produto">{produtoreserva.nome}</span>
                                 </div>
                             </div>
                             <div className="avaliacao-localizacao">
@@ -45,20 +43,20 @@ function Produto() {
                                 </div>
                                 <div>
                                     <svg width="12" height="20" viewBox="0 0 18 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12.35C8.14752 12.35 7.32995 12.0076 6.72716 11.3981C6.12436 10.7886 5.78571 9.96195 5.78571 9.1C5.78571 8.23805 6.12436 7.4114 6.72716 6.8019C7.32995 6.19241 8.14752 5.85 9 5.85C9.85248 5.85 10.67 6.19241 11.2728 6.8019C11.8756 7.4114 12.2143 8.23805 12.2143 9.1C12.2143 9.5268 12.1311 9.94941 11.9696 10.3437C11.8081 10.738 11.5713 11.0963 11.2728 11.3981C10.9744 11.6999 10.62 11.9393 10.2301 12.1026C9.84008 12.2659 9.42211 12.35 9 12.35ZM9 0C6.61305 0 4.32387 0.958747 2.63604 2.66533C0.948211 4.37191 0 6.68653 0 9.1C0 15.925 9 26 9 26C9 26 18 15.925 18 9.1C18 6.68653 17.0518 4.37191 15.364 2.66533C13.6761 0.958747 11.3869 0 9 0Z" fill="#383B58" /></svg>
-                                    <span className="localizacao-texto">{produtos?.cidade?.nome}</span>
+                                    <span className="localizacao-texto">{produtoreserva?.cidade?.nome}</span>
                                 </div>
                             </div>
                         </div>{/* --- Fim do cabeçalho --- */}
                         <div className="galeria-imagens"> {/* --- Início da galeria --- */}
                             <div>
-                                <img className="img-principal" src={produtos.imagens[0].url} alt="principal"></img>
+                                <img className="img-principal" src={produtoreserva?.imagens[0].url} alt="principal"></img>
                             </div>
                             <div className="imagens-secundarias">
-                                <img className="img-secundaria" src={produtos.imagens[1].url} alt="principal"></img>
-                                <img className="img-secundaria" src={produtos.imagens[2].url} alt="principal"></img>
-                                <img className="img-secundaria" src={produtos.imagens[3].url} alt="principal"></img>
+                                <img className="img-secundaria" src={produtoreserva?.imagens[1].url} alt="principal"></img>
+                                <img className="img-secundaria" src={produtoreserva?.imagens[2].url} alt="principal"></img>
+                                <img className="img-secundaria" src={produtoreserva?.imagens[3].url} alt="principal"></img>
                                 <div className="imagem-botao">
-                                    <img className="img-secundaria" src={produtos.imagens[4].url} alt="principal"></img>
+                                    <img className="img-secundaria" src={produtoreserva?.imagens[4].url} alt="principal"></img>
                                     <LightBox />
                                 </div>
                             </div>
@@ -68,7 +66,7 @@ function Produto() {
                                 <div id="descricao">
                                     <div>
                                         <h3>Descrição</h3>
-                                        <p>{produtos.descricao}</p>
+                                        <p>{produtoreserva.descricao}</p>
                                     </div>
                                 </div>
                                 <div className="mapa-produto">
@@ -92,7 +90,7 @@ function Produto() {
                                         <Calendar2 />
                                     </div>
                                     <div className="div-btn">
-                                        <Link to={logado !== null ? `/produto/reserva/${produto}` : "/login"}>
+                                        <Link to={logado !== null ? `/produto/reserva/${produto}` : "/login"}>                                        
                                             <button className="btn-reserva"> Iniciar reserva</button>
                                         </Link>
                                     </div>
