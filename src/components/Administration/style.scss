@@ -1,0 +1,180 @@
+#administration {
+  form {
+    margin-bottom: 15px;
+    section {
+      display: flex;
+      border-radius: 12px;
+      margin-top: 10vh;
+      margin-bottom: 15px;
+      align-items: center;
+      justify-content: center;
+      gap: 2vw;
+      @media (max-width: 685px) {
+        flex-direction: column;
+      }
+  
+      h2 {
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+
+      ul {
+        color: red;
+        padding: 8px;
+        margin-left: 13px;
+      }
+  
+      #form {
+        @media (max-width: 450px) {
+          width: 310px;
+        }
+  
+        label {
+          display: block;
+        }
+  
+        input:not(input[type="checkbox"]) {
+          @media (max-width: 685px) {
+            width: 409px;
+          }
+          @media (max-width: 450px) {
+            width: 300px;
+          }
+          width: 35vw;
+          padding: 8px;
+          text-align: center;
+          border-radius: 2px;
+          border: var(--second--color) 1px solid;
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.082);
+          border: none;
+        
+          &::placeholder {
+            opacity: 0.8;
+            font-size: 16px;
+          }
+        
+          &:focus {
+            &::placeholder {
+              transition: color 0.15s ease-in-out;
+              color: transparent;
+            }
+          }
+        }
+      }
+      #divImages {
+        #fieldImg {
+          @media (max-width: 685px) {
+            width: 423px;
+          }
+          @media (max-width: 450px) {
+            width: 316px;
+          }
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          #more {
+            cursor: pointer;
+          }
+          input {
+            @media (max-width: 685px) {
+              width: calc(423px - 26px);
+            }
+            @media (max-width: 450px) {
+              width: calc(316px - 26px);
+            }
+            width: calc(35vw - 26px);
+          }
+        }
+      }
+      #urlImages {
+        display: flex;
+        margin-top: 8px;
+        border-radius: 4px;
+        background-color: white;
+        height: 353px;
+        gap: 10px;
+        @media (max-width: 685px) {
+          width: 65vw;
+        }
+        @media (max-width: 450px) {
+          width: 316px;
+        }
+        width: 35vw;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        .textUrlImage {
+          outline: 1px solid black;
+          width: 100px;
+          height: 100px;
+          a {
+            font-size: 15px;
+            text-decoration: none;
+          }
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            margin-bottom: -7px;
+            user-select: none;
+          }
+          i {
+            position: relative;
+            top: -78px;
+            margin-left: -14px;
+            cursor: pointer;
+            &:hover {
+              transition: filter 0.1s ease-in;
+              filter: invert(1);
+            }
+          }
+        }
+  
+        #textImages {
+          color: rgba(0, 0, 0, 0.315);
+          position: absolute;
+          user-select: none;
+        }
+      }
+  
+      textarea {
+        @media (max-width: 685px) {
+          min-width: 423px;
+          max-width: 423px;
+          height: 40px;
+        }
+        @media (max-width: 450px) {
+          min-width: 316px;
+          max-width: 316px;
+          height: 40px;
+        }
+        min-width: calc(35vw + 16px);
+        max-width: calc(35vw + 16px);
+      }
+  
+    }
+    #button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 6px;
+        width: 150px;
+        height: 40px;
+        background-color: var(--first--color);
+        border: none;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-bottom: 25px;
+        &:hover {
+          transition: transform 0.1s ease-in;
+          outline: 1px solid black;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

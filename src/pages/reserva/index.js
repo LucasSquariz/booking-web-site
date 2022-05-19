@@ -5,36 +5,90 @@ import Politica from '../../components/PoliticaProduto';
 import Calendar1 from '../../components/Calendar/calendar1';
 import Calendar2 from '../../components/Calendar/calendar2';
 import { useEffect, useState } from 'react';
+import api from '../../services/api';
+import swal from 'sweetalert';
 
-function Reserva() {  
+function Reserva() {
     const [data, setData] = useState(JSON.parse(localStorage.getItem('data')))
     const [click, setClick] = useState(false)
-    const produtos = JSON.parse(localStorage.getItem('produto'));       
-    // document.getElementById("checkIn").innerHTML = "New text!";
+    const produtos = JSON.parse(localStorage.getItem('produto'));
 
     const scrollWindow = () => {
         window.scrollTo(0, 0)
-    }   
+    }
 
+    const redirecionar=() =>{
+        <Link to={"/login"}></Link>
+    }
+
+    // ----- Atualizar as informações de data quando clica no calendário
     useEffect(() => {
-        setData(JSON.parse(localStorage.getItem('data')))               
-    },[click])  
+        setData(JSON.parse(localStorage.getItem('data')))
+    }, [click])
 
     // ----- Formatar datas    
     const dataStart = JSON.stringify(data.startDate.split(['-']))
     const dataStartFormatada = dataStart[14] + dataStart[15] + '/' + dataStart[9] + dataStart[10] + '/' + dataStart[4] + dataStart[5]
     const dataEnd = JSON.stringify(data.endDate.split(['-']))
     const dataEndFormatada = dataEnd[14] + dataEnd[15] + '/' + dataEnd[9] + dataEnd[10] + '/' + dataEnd[4] + dataEnd[5]
-    
+
     // ----- Formatar nome
     const usuario = JSON.parse(localStorage.getItem('user'));
-    const nomeCompleto = usuario.name;
-    const nome = nomeCompleto.split([' '])
+    // const nomeCompleto = usuario.name.trim();
+    const nome = usuario?.name
+    const sobrenome = usuario?.secondName
 
-    
+    // ----- Lógica para enviar os dados da reserva
+    const handleSubmit = (
+        dataInicio,
+        dataFim,
+        idProduto,
+        idUsuario
+        ) => {
+        api.post("/reserva", {
+            "dataFim": dataFim,
+            "dataInicio": dataInicio,
+            "id": 0,
+            "produto": {
+                "caracteristicas": [],
+                "categorias": {
+                    "id": 3
+                },
+                "cidade": {
+                    "id": 2
+                },
+                "id": idProduto,
+                "imagens": [
+                    {
+                        "id": 0
+                    }
+                ]
+            },
+            "usuario": {
+                "administrador": true,
+                "id": idUsuario,
+                "nome": usuario.nome,
+                "sobrenome": usuario.sobrenome
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            console.log(response.status)
+            localStorage.setItem('reservas', JSON.stringify({
+                idProduto: idProduto,
+                idusuario: idUsuario,                
+
+            }))
+            swal({                
+                text: "Reserva realizada com sucesso!",
+                icon: "success",
+              });
+        })            
+        .catch((e)=>{console.log(e.message)})
+    }    
 
     return (
-        <>                  
+        <>        
             <div className="container-reserva" onLoad={scrollWindow} onClick={() => setClick(!click)}>
                 <div className="grid-reserva">
                     <div>
@@ -57,10 +111,7 @@ function Reserva() {
                                         startTime: '',
                                         endTime: ''
                                     }}
-                                    onSubmit={async (values) => {
-                                        await new Promise((r) => setTimeout(r, 500));
-                                        alert(JSON.stringify(values, null, 2));
-                                    }}
+                                    onSubmit={handleSubmit}
                                 >
                                     <Form className="formulario-reserva">
                                         <div className="campo-reserva">
@@ -68,7 +119,7 @@ function Reserva() {
                                                 <label className="titulo-campo-reserva" htmlFor="firstName">Nome: </label>
                                             </div>
                                             <div>
-                                                <Field className="campo-disabled" id="campo-formulario-reserva disabled" name="firstName" value={nome[0] == '' ? nome[1] : nome[0]} disabled />
+                                                <Field className="campo-disabled" id="campo-formulario-reserva disabled" name="firstName" value={nome} disabled />
                                             </div>
                                         </div>
 
@@ -77,7 +128,7 @@ function Reserva() {
                                                 <label className="titulo-campo-reserva" htmlFor="lastName">Sobrenome: </label>
                                             </div>
                                             <div>
-                                                <Field className="campo-disabled" name="lastName" value={nome[0] == '' ? nome[2] : nome[1]} disabled />
+                                                <Field className="campo-disabled" name="lastName" value={sobrenome} disabled />
                                             </div>
                                         </div>
 
@@ -100,7 +151,7 @@ function Reserva() {
                                                 <label className="titulo-campo-reserva" htmlFor="city">Cidade: </label>
                                             </div>
                                             <div>
-                                                <Field id="campo-formulario-reserva-cidade" name="city" />
+                                                <Field className="campo-disabled" name="city" value={produtos?.cidade?.nome} disabled />
                                             </div>
                                         </div>
                                         <div className="campo-reserva">
@@ -143,7 +194,7 @@ function Reserva() {
                             </div>
                         </div>
                         <div className="calendario1-reserva" >
-                            <Calendar1 />
+                            <Calendar1 data={new Date(2022, 5, 1)} dataDia='1' dataMes='5' dataAno='2022'/>
                         </div>
                         <div className="calendario2-reserva">
                             <Calendar2 />
@@ -168,12 +219,17 @@ function Reserva() {
                             </div>
                             <div className="checkin-out">
                                 <span className="checkin" >Check-in: <span id="checkIn">{dataStartFormatada}</span></span>
-                                <span className="checkin" id="checkOut">{`Check-out: ${dataEndFormatada}`}</span>
-                                {/* <span className="checkin">{`Hora de chegada: ${document.getElementById('hora-chegada')}`}</span>
-                                <span className="checkout">Hora de saída:</span> */}
+                                <span className="checkin" id="checkOut">{`Check-out: ${dataEndFormatada}`}</span>                                
                             </div>
                             <div className="div-btn-confirmar-reserva">
-                                <button className="btn-confirmar-reserva">Confirmar reserva</button>
+                                <button className="btn-confirmar-reserva" onClick={() => 
+                                    handleSubmit(
+                                    "2022-04-28T23:08:13.357Z",
+                                    "2022-08-02T23:08:13.357Z",
+                                    produtos.id,
+                                    22
+                                    )                                    
+                                    }>Confirmar reserva</button>
                             </div>
                         </div>
                     </div>

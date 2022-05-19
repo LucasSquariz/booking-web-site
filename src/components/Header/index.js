@@ -36,7 +36,7 @@ const Header = () => {
       const namePerfil = document.createElement("p")
       const closePerfil = document.createElement("i")
       const circlePerfil = document.createElement("div")
-
+      
       closePerfil.addEventListener("click", () => {
         navigate("/")
         localStorage.removeItem("user")
@@ -46,11 +46,22 @@ const Header = () => {
         })
         window.location.reload()
       })
-
+      
       closePerfil.setAttribute("class", "fas fa-times")
       circlePerfil.setAttribute("id", "circle")
       
       divPerfil.appendChild(circlePerfil)
+
+      if (JSON.parse(userStorage).admin) {
+        const iconAdmin = document.createElement("i")
+        iconAdmin.setAttribute("class", "fas fa-user-cog")
+        iconAdmin.style.cursor = "pointer"
+        iconAdmin.onclick = function() {
+          navigate("/administration")
+        }
+        divPerfil.appendChild(iconAdmin)
+      }
+
       divPerfil.appendChild(namePerfil)
       divPerfil.appendChild(closePerfil)
       perfis.appendChild(divPerfil)
@@ -68,9 +79,10 @@ const Header = () => {
       namePerfil.style.fontSize = "14px"
       closePerfil.style.cursor = "pointer"
 
-      circlePerfil.innerText = `${JSON.parse(userStorage).email[0].toUpperCase()}${JSON.parse(userStorage).email[1].toUpperCase()}`
+      circlePerfil.innerText = `${JSON.parse(userStorage).name[0].toUpperCase()}${JSON.parse(userStorage).secondName[0].toUpperCase()}`
       const name = JSON.parse(userStorage).name
-      namePerfil.innerHTML = `Olá, <br/><span style="color: var(--first--color);">${name[0].toUpperCase()}${name.slice(1, name.length)}</span>`
+      const secondName = JSON.parse(userStorage).secondName
+      namePerfil.innerHTML = `Olá, <br/><span style="color: var(--first--color);">${name[0].toUpperCase() || ""}${name.slice(1, name.length) || ""} ${secondName[0].toUpperCase() || ""}${secondName.slice(1, secondName.length) || ""}</span>`
     }
   }, [user])
 

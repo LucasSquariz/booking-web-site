@@ -1,27 +1,8 @@
 import "./style.scss";
 import ResearchHouse from "../../components/ResearchHouse";
 import Card from "../../components/Card";
-import useAxios from "../../hooks/useAxios";
-import { useEffect, useState } from "react";
 
-function Home() {
-  const [show, setShow] = useState(false);
-
-  function FalarOi(){
-    console.log("oi")
-  }
-
-  // const scrollWindow = () => {
-  //   window.scrollTo(0, 0);
-  // };
-
-  // const data = useAxios("/categoria")
-  // sessionStorage.setItem("categories", JSON.stringify(data))
-  // useEffect(() => {
-  //   if (data.length > 0){
-  //     setShow(true)
-  //   }
-  // }, [show, data.length])
+function Home() {  
   return (
     <>
       <nav>
@@ -40,7 +21,7 @@ function Home() {
           </div>
         </div>        
         <div>
-          <Card FalarOi={FalarOi}/>
+          <Card />
         </div>
       </nav>
     </>

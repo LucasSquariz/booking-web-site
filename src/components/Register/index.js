@@ -204,7 +204,8 @@ const Register = () => {
         nome: name,
         papeis: null,
         senha: password,
-        sobrenome: secondName
+        sobrenome: secondName,
+        admin: true
       })
       const main = document.getElementById("register")
       const divSuccess = document.createElement("div")

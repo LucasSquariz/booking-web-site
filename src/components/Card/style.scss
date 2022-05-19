@@ -53,8 +53,7 @@
 }
 
 .nome-categoria>p{    
-    text-align: center;
-    padding-top: 5px;
+    text-align: center;     
     @media(max-width: 500px){
         padding-top: 15px;
         font-size: small;
@@ -116,6 +115,7 @@
     width: 320px;
     height: 280px;
     border-radius: 30px;
+    object-fit: cover;
     @media(max-width:640px){
         width: 250px;
         height: 190px;        

@@ -35,13 +35,16 @@ const Login = () => {
         senha: password
       })
       console.log(response.data)
+      const result = response.data.split(" ")
       navigate("/")
       setInput({email, isLogged: true})
       localStorage.setItem("user", JSON.stringify({
         email,
         isLogged: true,
-        token: response.data.slice(0, 180),
-        name: response.data.slice(180, response.data.length)
+        token: result[0],
+        name: result[1],
+        secondName: result[2],
+        admin: true
       }))
       setUser({email, isLogged: true})
     } catch (e) {
